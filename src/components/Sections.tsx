@@ -219,7 +219,6 @@ export function Philosophy({ t }: { t: Translation }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // --- FORMSPREE INTEGRATION ---
     // Replace 'YOUR_FORM_ID' with the code from your Formspree dashboard
     const FORMSPREE_URL = "https://formspree.io/f/xnjodblo";
 
@@ -241,10 +240,10 @@ export function Philosophy({ t }: { t: Translation }) {
       if (response.ok) {
         setSubmitted(true);
       } else {
-        alert("Something went wrong. Please try again or contact us via social media.");
+        alert("Submission failed. Please try again.");
       }
     } catch (error) {
-      alert("There was an error submitting the form. Please check your internet connection.");
+      alert("Error connecting to the server.");
     } finally {
       setIsSubmitting(false);
     }
@@ -253,20 +252,10 @@ export function Philosophy({ t }: { t: Translation }) {
   return (
     <section id="waitlist" className="py-24 px-6 bg-dark text-cream flex justify-center">
       <div className="max-w-md w-full text-center">
-        <motion.span
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="eyebrow text-warm block mb-8"
-        >
+        <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="eyebrow text-warm block mb-8">
           {t.waitlist.eyebrow}
         </motion.span>
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-4xl font-serif mb-12"
-        >
+        <motion.h3 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl font-serif mb-12">
           {t.waitlist.title.before} <em className="text-warm italic">{t.waitlist.title.highlight}</em>{t.waitlist.title.after}
         </motion.h3>
 
@@ -274,63 +263,73 @@ export function Philosophy({ t }: { t: Translation }) {
           <form onSubmit={handleSubmit} className="space-y-8 text-left">
             <div>
               <label className="eyebrow text-[0.45rem] mb-2 block opacity-60">{t.waitlist.name}</label>
-              <input
-                type="text"
-                name="name"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="w-full bg-transparent border border-border/30 px-4 py-3 sharp-edge focus:border-warm outline-none transition-all placeholder:text-muted"
-              />
+              <input type="text" name="name" required value={name} onChange={(e) => setName(e.target.value)} className="w-full bg-transparent border border-border/30 px-4 py-3 sharp-edge focus:border-warm outline-none transition-all placeholder:text-muted" />
             </div>
             <div>
               <label className="eyebrow text-[0.45rem] mb-2 block opacity-60">{t.waitlist.email}</label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-transparent border border-border/30 px-4 py-3 sharp-edge focus:border-warm outline-none transition-all placeholder:text-muted"
-              />
+              <input type="email" name="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-transparent border border-border/30 px-4 py-3 sharp-edge focus:border-warm outline-none transition-all placeholder:text-muted" />
             </div>
             <div>
               <label className="eyebrow text-[0.45rem] mb-4 block opacity-60">{t.waitlist.sizeLabel}</label>
               <div className="flex flex-wrap gap-2">
                 {sizes.map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    onClick={() => setSize(s)}
-                    className={`flex-1 min-w-[3rem] py-2 border font-display text-[0.6rem] tracking-widest sharp-edge transition-all ${
-                      size === s 
-                        ? "bg-warm text-dark border-warm" 
-                        : "bg-transparent border-border/30 text-cream/60 hover:border-warm/60"
-                    }`}
-                  >
+                  <button key={s} type="button" onClick={() => setSize(s)} className={`flex-1 min-w-[3rem] py-2 border font-display text-[0.6rem] tracking-widest sharp-edge transition-all ${size === s ? "bg-warm text-dark border-warm" : "bg-transparent border-border/30 text-cream/60 hover:border-warm/60"}`}>
                     {s}
                   </button>
                 ))}
               </div>
             </div>
-            <button
-              type="submit"
-              disabled={!size || isSubmitting}
-              className="w-full py-4 bg-warm text-dark font-display text-[0.65rem] tracking-[0.3em] font-bold sharp-edge hover:bg-cream transition-all disabled:opacity-30 disabled:cursor-not-allowed"
-            >
+            <button type="submit" disabled={!size || isSubmitting} className="w-full py-4 bg-warm text-dark font-display text-[0.65rem] tracking-[0.3em] font-bold sharp-edge hover:bg-cream transition-all disabled:opacity-30">
               {isSubmitting ? "PROCESSING..." : t.waitlist.button}
             </button>
           </form>
         ) : (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="p-12 border border-olive/30"
-          >
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="p-12 border border-olive/30">
             <p className="font-serif italic text-xl text-warm">{t.waitlist.success}</p>
           </motion.div>
         )}
       </div>
     </section>
+  );
+}
+
+export function Connect({ t }: { t: Translation }) {
+  return (
+    <section id="connect" className="py-32 px-6 bg-cream flex flex-col items-center text-center">
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mb-12">
+        <FrogLogo className="w-16 h-16" color="#6B2D0E" shadow={false} />
+      </motion.div>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
+        <h3 className="font-display text-[0.65rem] tracking-[0.35em] text-brown font-bold uppercase">{t.connect.title}</h3>
+        <p className="font-serif italic text-xl text-body/80">{t.connect.subtitle}</p>
+      </motion.div>
+      <div className="flex flex-col items-center gap-6 mb-24">
+        <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
+        <SocialLink href="https://tiktok.com/@jddpbrand">{t.connect.tiktok}</SocialLink>
+        <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
+      </div>
+    </section>
+  );
+}
+
+function SocialLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="font-display text-[0.55rem] tracking-[0.3em] text-body/60 hover:text-brown border-b border-transparent hover:border-brown pb-1 transition-all">
+      {children}
+    </a>
+  );
+}
+
+export function Footer({ t }: { t: Translation }) {
+  return (
+    <footer className="py-12 px-6 bg-body text-cream/40 flex flex-col items-center gap-8 relative">
+      <div className="w-full flex items-center justify-between opacity-50">
+        <div>
+          <span className="font-display text-[0.55rem] tracking-[0.3em] block mb-2">{t.footer.brand}</span>
+          <span className="font-display text-[0.45rem] tracking-[0.2em]">{t.footer.rights}</span>
+        </div>
+        <FrogLogo className="w-8 h-8 opacity-20" color="currentColor" shadow={false} />
+      </div>
+    </footer>
   );
 }
