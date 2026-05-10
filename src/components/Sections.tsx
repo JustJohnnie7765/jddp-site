@@ -206,18 +206,48 @@ export function Philosophy({ t }: { t: Translation }) {
   );
 }
 
-export function Waitlist({ t }: { t: Translation }) {
+  export function Waitlist({ t }: { t: Translation }) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [size, setSize] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const sizes = ["S", "M", "L", "XL", "XXL"];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate Formspree or similar
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    // --- FORMSPREE INTEGRATION ---
+    // Replace 'YOUR_FORM_ID' with the code from your Formspree dashboard
+    const FORMSPREE_URL = "https://formspree.io/f/xnjodblo";
+
+    try {
+      const response = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          size: size,
+          _subject: `New JDDP Waitlist Entry: ${name}`
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again or contact us via social media.");
+      }
+    } catch (error) {
+      alert("There was an error submitting the form. Please check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -246,6 +276,7 @@ export function Waitlist({ t }: { t: Translation }) {
               <label className="eyebrow text-[0.45rem] mb-2 block opacity-60">{t.waitlist.name}</label>
               <input
                 type="text"
+                name="name"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -256,6 +287,7 @@ export function Waitlist({ t }: { t: Translation }) {
               <label className="eyebrow text-[0.45rem] mb-2 block opacity-60">{t.waitlist.email}</label>
               <input
                 type="email"
+                name="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -283,10 +315,10 @@ export function Waitlist({ t }: { t: Translation }) {
             </div>
             <button
               type="submit"
-              disabled={!size}
+              disabled={!size || isSubmitting}
               className="w-full py-4 bg-warm text-dark font-display text-[0.65rem] tracking-[0.3em] font-bold sharp-edge hover:bg-cream transition-all disabled:opacity-30 disabled:cursor-not-allowed"
             >
-              {t.waitlist.button}
+              {isSubmitting ? "PROCESSING..." : t.waitlist.button}
             </button>
           </form>
         ) : (
@@ -300,79 +332,5 @@ export function Waitlist({ t }: { t: Translation }) {
         )}
       </div>
     </section>
-  );
-}
-
-export function Connect({ t }: { t: Translation }) {
-  return (
-    <section id="connect" className="py-32 px-6 bg-cream flex flex-col items-center text-center">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="mb-12"
-      >
-        <FrogLogo className="w-16 h-16" color="#6B2D0E" shadow={false} />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-xl space-y-6 mb-16"
-      >
-        <h3 className="font-display text-[0.65rem] tracking-[0.35em] text-brown font-bold uppercase">
-          {t.connect.title}
-        </h3>
-        <p className="font-serif italic text-xl text-body/80">
-          {t.connect.subtitle}
-        </p>
-      </motion.div>
-      
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="flex flex-col items-center gap-6 mb-24"
-      >
-        <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
-        <SocialLink href="https://tiktok.com/@jddpbrand">{t.connect.tiktok}</SocialLink>
-        <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
-      </motion.div>
-    </section>
-  );
-}
-
-function SocialLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="font-display text-[0.55rem] tracking-[0.3em] text-body/60 hover:text-brown hover:opacity-100 border-b border-transparent hover:border-brown pb-1 transition-all"
-    >
-      {children}
-    </a>
-  );
-}
-
-export function Footer({ t }: { t: Translation }) {
-  return (
-    <footer className="py-12 px-6 bg-body text-cream/40 flex flex-col items-center gap-8 relative">
-      <div className="w-full flex items-center justify-between opacity-50">
-        <div>
-          <span className="font-display text-[0.55rem] tracking-[0.3em] block mb-2">{t.footer.brand}</span>
-          <span className="font-display text-[0.45rem] tracking-[0.2em]">{t.footer.rights}</span>
-        </div>
-        <FrogLogo className="w-8 h-8 opacity-20" color="currentColor" shadow={false} />
-      </div>
-      
-      <div className="text-center pt-8 border-t border-cream/5 w-full">
-        <p className="font-serif italic text-sm md:text-base tracking-wide opacity-60">
-          "{t.connect.signoff || t.payoff}"
-        </p>
-      </div>
-    </footer>
   );
 }
