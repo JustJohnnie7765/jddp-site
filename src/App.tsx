@@ -50,10 +50,11 @@ export default function App() {
       
       {!gateOpen && (
         <>
-          {/* THE FIX: Nav is now outside the <main> tag */}
-          <Nav t={t} currentLang={lang} onSelectLanguage={setLang} />
+          {/* THE FIX: Nav is now outside the <main> tag to prevent it from scrolling away */}
+          <Nav t={t} currentLang={lang} onSelectLanguage={handleSelectLanguage} />
           
-          <main className="animate-fade-up">
+          {/* pt-20 adds space at the top so the Hero title isn't covered by the pinned Nav */}
+          <main className="animate-fade-up pt-20">
             <Hero t={t} />
             <TheWhy t={t} />
             <OriginStory t={t} />
