@@ -40,8 +40,8 @@ export default function App() {
     }
   }, [gateOpen]);
 
-  return (
-    <div className="min-h-screen selection:bg-brown selection:text-cream">
+    return (
+    <div className="min-h-screen selection:bg-brown selection:text-cream bg-cream">
       <Gate 
         t={translations['EN']} 
         isOpen={gateOpen} 
@@ -50,17 +50,22 @@ export default function App() {
       
       {!gateOpen && (
         <>
-          {/* THE FIX: Nav is now outside the <main> tag to prevent it from scrolling away */}
-          <Nav t={t} currentLang={lang} onSelectLanguage={handleSelectLanguage} />
+          {/* THE FIX: Nav is outside <main> and correctly linked to the language handler */}
+          <Nav 
+            t={t} 
+            currentLang={lang} 
+            onSelectLanguage={handleSelectLanguage} 
+          />
           
-          {/* pt-20 adds space at the top so the Hero title isn't covered by the pinned Nav */}
-          <main className="animate-fade-up pt-20">
+          {/* pt-24 (approx 6rem) ensures the Hero content starts below the pinned ribbon */}
+          <main className="animate-fade-up pt-24">
             <Hero t={t} />
             <TheWhy t={t} />
             <OriginStory t={t} />
             <Philosophy t={t} />
             <SymbolsGrid t={t} />
             <Waitlist t={t} />
+            {/* The TikTok handle is physically removed from the component code inside Connect */}
             <Connect t={t} />
             <Footer t={t} />
           </main>
@@ -68,4 +73,3 @@ export default function App() {
       )}
     </div>
   );
-}
