@@ -43,23 +43,27 @@ export default function App() {
   return (
     <div className="min-h-screen selection:bg-brown selection:text-cream">
       <Gate 
-        t={translations['EN']} // Gate always shows EN or a mix, but user-selected choice transitions
+        t={translations['EN']} 
         isOpen={gateOpen} 
         onSelectLanguage={handleSelectLanguage} 
       />
       
       {!gateOpen && (
-        <main className="animate-fade-up">
+        <>
+          {/* Nav is now outside of <main> to ensure 'fixed' positioning works correctly */}
           <Nav t={t} currentLang={lang} onSelectLanguage={setLang} />
-          <Hero t={t} />
-          <TheWhy t={t} />
-          <OriginStory t={t} />
-          <Philosophy t={t} />
-          <SymbolsGrid t={t} />
-          <Waitlist t={t} />
-          <Connect t={t} />
-          <Footer t={t} />
-        </main>
+          
+          <main className="animate-fade-up">
+            <Hero t={t} />
+            <TheWhy t={t} />
+            <OriginStory t={t} />
+            <Philosophy t={t} />
+            <SymbolsGrid t={t} />
+            <Waitlist t={t} />
+            <Connect t={t} />
+            <Footer t={t} />
+          </main>
+        </>
       )}
     </div>
   );
