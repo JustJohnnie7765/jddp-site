@@ -327,7 +327,7 @@ export function Footer({ t }: { t: Translation }) {
         <div className="space-y-4">
           <div>
             <span className="font-display text-[0.55rem] tracking-[0.3em] block mb-2 uppercase">
-              JDDP &mdash; CAPE TOWN
+              JDDP &ndash; CAPE TOWN
             </span>
             <div className="font-display text-[0.45rem] tracking-[0.2em] opacity-80 leading-relaxed">
               <p>JDDP&trade; is a brand of JUSTJOHNNIE (Pty) Ltd.</p>
