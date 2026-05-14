@@ -325,6 +325,7 @@ export function Connect({ t }: { t: Translation }) {
       </motion.div>
       
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
+        {/* Point 3: Drama Boost Header */}
         <h3 className="font-display text-base tracking-[0.35em] text-brown font-bold uppercase">
           {t.connect.title}
         </h3>
@@ -332,7 +333,7 @@ export function Connect({ t }: { t: Translation }) {
       </motion.div>
 
       <div className="flex flex-col items-center gap-6 mb-24">
-        {/* ONLY INSTAGRAM AND FACEBOOK ARE ALLOWED TO EXIST HERE */}
+        {/* HARCODED LINKS ONLY: TikTok is physically deleted from the logic below */}
         <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
         <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
       </div>
@@ -341,7 +342,7 @@ export function Connect({ t }: { t: Translation }) {
 }
 
 function SocialLink({ href, children }: { href: string; children: React.ReactNode }) {
-  // THE KILL SWITCH: If the translation is empty or missing, don't render anything.
+  // If the translation text is empty, the link will not exist in the DOM
   if (!children || children === "") return null;
 
   return (
@@ -355,3 +356,4 @@ function SocialLink({ href, children }: { href: string; children: React.ReactNod
     </a>
   );
 }
+
