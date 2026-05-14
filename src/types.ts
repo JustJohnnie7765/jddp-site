@@ -169,7 +169,6 @@ export const translations: Record<Language, Translation> = {
       title: "FOR THE QUIETLY BRAVE - WHEREVER YOU ARE.",
       subtitle: "Follow the journey as it unfolds.",
       instagram: "INSTAGRAM · @JDDPBRAND",
-      tiktok: "TIKTOK · @JDDPBRAND",
       facebook: "FACEBOOK · @JDDPBRAND",
       signoff: ""
     },
@@ -265,7 +264,6 @@ export const translations: Record<Language, Translation> = {
       title: "VIR DIE STILLE DAPPER - WAAR JY OOK AL IS.",
       subtitle: "Volg die reis soos dit ontvou.",
       instagram: "INSTAGRAM · @JDDPBRAND",
-      tiktok: "TIKTOK · @JDDPBRAND",
       facebook: "FACEBOOK · @JDDPBRAND",
       signoff: ""
     },
@@ -361,7 +359,6 @@ export const translations: Record<Language, Translation> = {
       title: "KWABO BAKHALIPHILEYO NGOKUZOLILEYO - NAPHI NA APHO UKHOYO.",
       subtitle: "Landela olu hambo njengoko lutyhila.",
       instagram: "INSTAGRAM · @JDDPBRAND",
-      tiktok: "TIKTOK · @JDDPBRAND",
       facebook: "FACEBOOK · @JDDPBRAND",
       signoff: ""
     },
