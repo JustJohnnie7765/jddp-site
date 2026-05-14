@@ -14,7 +14,7 @@ export default function Hero({ t }: HeroProps) {
         <FrogLogo className="w-[95vmin] h-[95vmin]" color="#6B2D0E" shadow={false} />
       </div>
 
-      <div className="relative z-10 text-center max-w-2xl flex flex-col items-center">
+      <div className="relative z-10 text-center max-w-4xl flex flex-col items-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +40,8 @@ export default function Hero({ t }: HeroProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          className="text-4xl md:text-7xl font-serif text-body leading-tight"
+          {/* Change: text-4xl md:text-7xl -> text-6xl md:text-8xl */}
+          className="text-6xl md:text-8xl font-serif text-body leading-tight"
         >
           {t.hero.title.normal}
           <em className="text-brown italic">{t.hero.title.italic}</em>
