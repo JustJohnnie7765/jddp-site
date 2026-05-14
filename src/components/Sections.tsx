@@ -11,7 +11,7 @@ export function TheWhy({ t }: { t: Translation }) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          /* Checklist 2A: standardizing eyebrow text-base and tracking */
+          /* Point 2: Standardized eyebrow size */
           className="text-base tracking-[0.3em] uppercase text-brown block mb-8"
         >
           {t.why.eyebrow}
@@ -20,7 +20,7 @@ export function TheWhy({ t }: { t: Translation }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          /* Checklist 3: text-3xl md:text-5xl -> text-4xl md:text-6xl */
+          /* Point 3: Drama Boost - text-4xl md:text-6xl */
           className="text-4xl md:text-6xl font-serif mb-12"
         >
           {t.why.title}
@@ -64,7 +64,7 @@ export function TheWhy({ t }: { t: Translation }) {
             viewport={{ once: true }}
             className="border-l-2 border-warm pl-8 py-4 italic text-2xl text-brown"
           >
-            {t.why.quote2}
+            "{t.why.quote2}"
           </motion.blockquote>
           <motion.p
             initial={{ opacity: 0 }}
@@ -88,19 +88,19 @@ export function OriginStory({ t }: { t: Translation }) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          /* Checklist 2B: Added text-base */
+          /* Point 2: Added text-base */
           className="eyebrow text-base text-warm block mb-8"
         >
           {t.origin.eyebrow}
         </motion.span>
         <div className="mb-12">
-          {/* Checklist 2B Date Check: text-[0.6rem] -> text-[0.8rem] */}
+          /* Point 2: Date Check - text-[0.8rem] */
           <span className="font-display text-[0.8rem] tracking-[0.2em] text-muted block mb-2">{t.origin.date}</span>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            /* Checklist 3: text-3xl md:text-5xl -> text-4xl md:text-6xl */
+            /* Point 3: Drama Boost - text-4xl md:text-6xl */
             className="text-4xl md:text-6xl font-serif"
           >
             {t.origin.title}
@@ -143,7 +143,7 @@ export function SymbolsGrid({ t }: { t: Translation }) {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          /* Checklist 2C: text-sm -> text-base */
+          /* Point 2: text-sm -> text-base */
           className="text-base font-display tracking-[0.4em] uppercase text-brown mb-16 text-center"
         >
           {t.symbols.title}
@@ -184,12 +184,12 @@ export function Philosophy({ t }: { t: Translation }) {
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            /* Checklist 3: text-3xl md:text-5xl -> text-4xl md:text-6xl */
+            /* Point 3: Drama Boost - text-4xl md:text-6xl */
             className="text-4xl md:text-6xl font-serif italic mb-12 block text-brown"
           >
             "{t.payoff}"
           </motion.h2>
-          {/* Checklist 2D: Added text-base */}
+          {/* Point 2: Added text-base */}
           <span className="eyebrow text-base text-brown/60 mb-4 block">
             {t.philosophy.title}
           </span>
@@ -244,10 +244,11 @@ export function Waitlist({ t }: { t: Translation }) {
   return (
     <section id="waitlist" className="py-24 px-6 bg-dark text-cream flex justify-center">
       <div className="max-w-md w-full text-center">
-        {/* Checklist 2D: Added text-base */}
+        {/* Point 2: Added text-base */}
         <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="eyebrow text-base text-warm block mb-8">
           {t.waitlist.eyebrow}
         </motion.span>
+        {/* Point 3: Drama Boost */}
         <motion.h3 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl font-serif mb-12">
           {t.waitlist.title.before} <em className="text-warm italic">{t.waitlist.title.highlight}</em>{t.waitlist.title.after}
         </motion.h3>
@@ -255,24 +256,24 @@ export function Waitlist({ t }: { t: Translation }) {
         {!submitted ? (
           <form onSubmit={handleSubmit} className="space-y-8 text-left">
             <div>
-              <label className="eyebrow text-[0.45rem] mb-2 block opacity-60">{t.waitlist.name}</label>
+              <label className="eyebrow text-base mb-2 block opacity-60">{t.waitlist.name}</label>
               <input type="text" name="name" required value={name} onChange={(e) => setName(e.target.value)} className="w-full bg-transparent border border-border/30 px-4 py-3 sharp-edge focus:border-warm outline-none transition-all placeholder:text-muted" />
             </div>
             <div>
-              <label className="eyebrow text-[0.45rem] mb-2 block opacity-60">{t.waitlist.email}</label>
+              <label className="eyebrow text-base mb-2 block opacity-60">{t.waitlist.email}</label>
               <input type="email" name="email" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-transparent border border-border/30 px-4 py-3 sharp-edge focus:border-warm outline-none transition-all placeholder:text-muted" />
             </div>
             <div>
-              <label className="eyebrow text-[0.45rem] mb-4 block opacity-60">{t.waitlist.sizeLabel}</label>
+              <label className="eyebrow text-base mb-4 block opacity-60">{t.waitlist.sizeLabel}</label>
               <div className="flex flex-wrap gap-2">
                 {sizes.map((s) => (
-                  <button key={s} type="button" onClick={() => setSize(s)} className={`flex-1 min-w-[3rem] py-2 border font-display text-[0.6rem] tracking-widest sharp-edge transition-all ${size === s ? "bg-warm text-dark border-warm" : "bg-transparent border-border/30 text-cream/60 hover:border-warm/60"}`}>
+                  <button key={s} type="button" onClick={() => setSize(s)} className={`flex-1 min-w-[3rem] py-2 border font-display text-base tracking-widest sharp-edge transition-all ${size === s ? "bg-warm text-dark border-warm" : "bg-transparent border-border/30 text-cream/60 hover:border-warm/60"}`}>
                     {s}
                   </button>
                 ))}
               </div>
             </div>
-            <button type="submit" disabled={!size || isSubmitting} className="w-full py-4 bg-warm text-dark font-display text-[0.65rem] tracking-[0.3em] font-bold sharp-edge hover:bg-cream transition-all disabled:opacity-30">
+            <button type="submit" disabled={!size || isSubmitting} className="w-full py-4 bg-warm text-dark font-display text-base tracking-[0.3em] font-bold sharp-edge hover:bg-cream transition-all disabled:opacity-30">
               {isSubmitting ? "PROCESSING..." : t.waitlist.button}
             </button>
           </form>
@@ -292,13 +293,15 @@ export function Connect({ t }: { t: Translation }) {
       <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mb-12">
         <FrogLogo className="w-16 h-16" color="#6B2D0E" shadow={false} />
       </motion.div>
+      
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
-        <h3 className="font-display text-[0.65rem] tracking-[0.35em] text-brown font-bold uppercase">{t.connect.title}</h3>
+        <h3 className="font-display text-base tracking-[0.35em] text-brown font-bold uppercase">{t.connect.title}</h3>
         <p className="font-serif italic text-xl text-body/80">{t.connect.subtitle}</p>
       </motion.div>
+
       <div className="flex flex-col items-center gap-6 mb-24">
         <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
-        <SocialLink href="https://tiktok.com/@jddpbrand">{t.connect.tiktok}</SocialLink>
+        {/* TIKTOK LINE REMOVED PHYSICALLY FROM CODE */}
         <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
       </div>
     </section>
@@ -306,37 +309,34 @@ export function Connect({ t }: { t: Translation }) {
 }
 
 function SocialLink({ href, children }: { href: string; children: React.ReactNode }) {
+  if (!children) return null; // Prevents showing an empty line
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="font-display text-[0.55rem] tracking-[0.3em] text-body/60 hover:text-brown border-b border-transparent hover:border-brown pb-1 transition-all">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="font-display text-base tracking-[0.3em] text-body/60 hover:text-brown border-b border-transparent hover:border-brown pb-1 transition-all">
       {children}
     </a>
   );
 }
 
-export function Connect({ t }: { t: Translation }) {
+export function Footer({ t }: { t: Translation }) {
   return (
-    <section id="connect" className="py-32 px-6 bg-cream flex flex-col items-center text-center">
-      <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mb-12">
-        <FrogLogo className="w-16 h-16" color="#6B2D0E" shadow={false} />
-      </motion.div>
-      
-      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
-        <h3 className="font-display text-base tracking-[0.35em] text-brown font-bold uppercase">
-          {t.connect.title}
-        </h3>
-        <p className="font-serif italic text-xl text-body/80">{t.connect.subtitle}</p>
-      </motion.div>
-
-      <div className="flex flex-col items-center gap-6 mb-24">
-        {/* WE HAVE REMOVED THE TIKTOK LINE ENTIRELY FROM THIS CODE */}
-        <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
-        <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
+    <footer className="py-12 px-6 bg-body text-cream/40 flex flex-col items-center gap-8 relative">
+      <div className="w-full flex items-center justify-between opacity-50">
+        <div className="space-y-4">
+          <div>
+            <span className="font-display text-base tracking-[0.3em] block mb-2 uppercase">
+              JDDP &ndash; CAPE TOWN
+            </span>
+            <div className="font-display text-sm tracking-[0.2em] opacity-80 leading-relaxed">
+              <p>JDDP&trade; is a brand of JUSTJOHNNIE (Pty) Ltd.</p>
+              <p>"Johannie die Dapper Paddatjie" is a pending trademark.</p>
+            </div>
+          </div>
+          <span className="font-display text-sm tracking-[0.2em] block pt-2">
+            ALL RIGHTS RESERVED &copy; 2026
+          </span>
+        </div>
+        <FrogLogo className="w-8 h-8 opacity-20" color="currentColor" shadow={false} />
       </div>
-    </section>
+    </footer>
   );
 }
-
-
-
-
-
