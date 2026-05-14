@@ -324,9 +324,19 @@ export function Footer({ t }: { t: Translation }) {
   return (
     <footer className="py-12 px-6 bg-body text-cream/40 flex flex-col items-center gap-8 relative">
       <div className="w-full flex items-center justify-between opacity-50">
-        <div>
-          <span className="font-display text-[0.55rem] tracking-[0.3em] block mb-2">{t.footer.brand}</span>
-          <span className="font-display text-[0.45rem] tracking-[0.2em]">{t.footer.rights}</span>
+        <div className="space-y-4">
+          <div>
+            <span className="font-display text-[0.55rem] tracking-[0.3em] block mb-2 uppercase">
+              JDDP &mdash; CAPE TOWN
+            </span>
+            <div className="font-display text-[0.45rem] tracking-[0.2em] opacity-80 leading-relaxed">
+              <p>JDDP&trade; is a brand of JUSTJOHNNIE (Pty) Ltd.</p>
+              <p>"Johannie die Dapper Paddatjie" is a pending trademark.</p>
+            </div>
+          </div>
+          <span className="font-display text-[0.45rem] tracking-[0.2em] block pt-2">
+            ALL RIGHTS RESERVED &copy; 2026
+          </span>
         </div>
         <FrogLogo className="w-8 h-8 opacity-20" color="currentColor" shadow={false} />
       </div>
