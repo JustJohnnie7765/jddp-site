@@ -321,7 +321,6 @@ export function Connect({ t }: { t: Translation }) {
       </motion.div>
       
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
-        {/* Updated to text-base to match Section Eyebrows */}
         <h3 className="font-display text-base tracking-[0.35em] text-brown font-bold uppercase">
           {t.connect.title}
         </h3>
@@ -329,12 +328,13 @@ export function Connect({ t }: { t: Translation }) {
       </motion.div>
 
       <div className="flex flex-col items-center gap-6 mb-24">
+        {/* ONLY INSTAGRAM AND FACEBOOK REMAIN */}
         <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
-        {/* TikTok has been removed from here */}
         <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
       </div>
     </section>
   );
 }
+
 
 
