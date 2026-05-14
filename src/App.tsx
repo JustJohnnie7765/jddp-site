@@ -50,7 +50,7 @@ export default function App() {
       
       {!gateOpen && (
         <>
-          {/* Nav is now outside of <main> to ensure 'fixed' positioning works correctly */}
+          {/* THE FIX: Nav is now outside the <main> tag */}
           <Nav t={t} currentLang={lang} onSelectLanguage={setLang} />
           
           <main className="animate-fade-up">
