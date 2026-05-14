@@ -40,7 +40,9 @@ export default function Hero({ t }: HeroProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          {/* Change: text-4xl md:text-7xl -> text-6xl md:text-8xl */}
+          /* Action Taken: Increased drama as requested.
+             Bumped from text-5xl md:text-7xl to text-6xl md:text-8xl
+          */
           className="text-6xl md:text-8xl font-serif text-body leading-tight"
         >
           {t.hero.title.normal}
