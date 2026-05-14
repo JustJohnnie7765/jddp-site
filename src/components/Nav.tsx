@@ -14,11 +14,15 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 w-full z-50 glass border-b border-border/20 px-6 py-4 flex items-center justify-between"
+      /* Change: Enhanced 'glass' effect. 
+         Added bg-cream/80 and backdrop-blur-md for better legibility 
+         during scroll.
+      */
+      className="fixed top-0 left-0 w-full z-50 bg-cream/80 backdrop-blur-md border-b border-brown/10 px-6 py-4 flex items-center justify-between"
     >
       <div className="flex items-center gap-4">
         <FrogLogo className="w-8 h-8" color="#6B2D0E" shadow={false} />
-        <span className="font-display text-[0.65rem] tracking-[0.2em] font-bold text-brown">JDDP</span>
+        <span className="font-display text-[0.65rem] tracking-[0.2em] font-bold text-brown uppercase">JDDP</span>
       </div>
 
       <div className="hidden md:flex items-center gap-12">
@@ -33,8 +37,10 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
           <button
             key={lang}
             onClick={() => onSelectLanguage(lang)}
-            className={`font-display text-[0.6rem] tracking-widest px-2 py-1 ${
-              currentLang === lang ? "text-brown font-bold" : "text-muted hover:text-brown"
+            className={`font-display text-[0.6rem] tracking-widest px-2 py-1 transition-colors ${
+              currentLang === lang 
+                ? "text-brown font-bold border-b border-brown" 
+                : "text-muted hover:text-brown"
             }`}
           >
             {lang}
@@ -49,7 +55,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <a
       href={href}
-      className="font-display text-[0.52rem] tracking-[0.25em] text-body/60 hover:text-brown hover:opacity-100 transition-all"
+      className="font-display text-[0.52rem] tracking-[0.25em] text-body/60 hover:text-brown hover:opacity-100 transition-all uppercase"
     >
       {children}
     </a>
