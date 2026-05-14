@@ -14,11 +14,11 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      /* Change: Enhanced 'glass' effect. 
-         Added bg-cream/80 and backdrop-blur-md for better legibility 
-         during scroll.
+      /* FIX: 'fixed inset-x-0 top-0' locks it to the browser window.
+         'z-[100]' ensures it stays above all other content.
       */
-      className="fixed top-0 left-0 w-full z-50 bg-cream/80 backdrop-blur-md border-b border-brown/10 px-6 py-4 flex items-center justify-between"
+      className="fixed inset-x-0 top-0 w-full z-[100] bg-cream/80 backdrop-blur-md border-b border-brown/10 px-6 py-4 flex items-center justify-between"
+      style={{ position: 'fixed' }} 
     >
       <div className="flex items-center gap-4">
         <FrogLogo className="w-8 h-8" color="#6B2D0E" shadow={false} />
