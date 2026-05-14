@@ -319,16 +319,22 @@ export function Connect({ t }: { t: Translation }) {
       <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mb-12">
         <FrogLogo className="w-16 h-16" color="#6B2D0E" shadow={false} />
       </motion.div>
+      
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
-        <h3 className="font-display text-[0.65rem] tracking-[0.35em] text-brown font-bold uppercase">{t.connect.title}</h3>
+        {/* Updated to text-base to match Section Eyebrows */}
+        <h3 className="font-display text-base tracking-[0.35em] text-brown font-bold uppercase">
+          {t.connect.title}
+        </h3>
         <p className="font-serif italic text-xl text-body/80">{t.connect.subtitle}</p>
       </motion.div>
+
       <div className="flex flex-col items-center gap-6 mb-24">
-        {/* Only Instagram and Facebook remain */}
         <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
+        {/* TikTok has been removed from here */}
         <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
       </div>
     </section>
   );
 }
+
 
