@@ -313,26 +313,22 @@ function SocialLink({ href, children }: { href: string; children: React.ReactNod
   );
 }
 
-export function Footer({ t }: { t: Translation }) {
+export function Connect({ t }: { t: Translation }) {
   return (
-    <footer className="py-12 px-6 bg-body text-cream/40 flex flex-col items-center gap-8 relative">
-      <div className="w-full flex items-center justify-between opacity-50">
-        <div className="space-y-4">
-          <div>
-            <span className="font-display text-[0.55rem] tracking-[0.3em] block mb-2 uppercase">
-              JDDP &ndash; CAPE TOWN
-            </span>
-            <div className="font-display text-[0.45rem] tracking-[0.2em] opacity-80 leading-relaxed">
-              <p>JDDP&trade; is a brand of JUSTJOHNNIE (Pty) Ltd.</p>
-              <p>"Johannie die Dapper Paddatjie" is a pending trademark.</p>
-            </div>
-          </div>
-          <span className="font-display text-[0.45rem] tracking-[0.2em] block pt-2">
-            ALL RIGHTS RESERVED &copy; 2026
-          </span>
-        </div>
-        <FrogLogo className="w-8 h-8 opacity-20" color="currentColor" shadow={false} />
+    <section id="connect" className="py-32 px-6 bg-cream flex flex-col items-center text-center">
+      <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mb-12">
+        <FrogLogo className="w-16 h-16" color="#6B2D0E" shadow={false} />
+      </motion.div>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
+        <h3 className="font-display text-[0.65rem] tracking-[0.35em] text-brown font-bold uppercase">{t.connect.title}</h3>
+        <p className="font-serif italic text-xl text-body/80">{t.connect.subtitle}</p>
+      </motion.div>
+      <div className="flex flex-col items-center gap-6 mb-24">
+        {/* Only Instagram and Facebook remain */}
+        <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
+        <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
       </div>
-    </footer>
+    </section>
   );
 }
+
