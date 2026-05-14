@@ -328,13 +328,15 @@ export function Connect({ t }: { t: Translation }) {
       </motion.div>
 
       <div className="flex flex-col items-center gap-6 mb-24">
-        {/* ONLY INSTAGRAM AND FACEBOOK REMAIN */}
+        {/* WE HAVE REMOVED THE TIKTOK LINE ENTIRELY FROM THIS CODE */}
         <SocialLink href="https://instagram.com/jddpbrand">{t.connect.instagram}</SocialLink>
         <SocialLink href="https://facebook.com/jddpbrand">{t.connect.facebook}</SocialLink>
       </div>
     </section>
   );
 }
+
+
 
 
 
