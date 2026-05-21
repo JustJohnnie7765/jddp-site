@@ -71,7 +71,6 @@ export interface Translation {
     title: string;
     subtitle: string;
     instagram: string;
-    tiktok: string;
     facebook: string;
     signoff: string;
   };
