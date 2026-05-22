@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "motion/react";
-import FrogLogo from "./FrogLogo";
 import { Language, Translation } from "../types";
 
 interface NavProps {
@@ -14,15 +13,12 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      /* FIX: Added !important to position and top via style tag.
-         z-[9999] ensures it stays above every single element.
-         inset-x-0 ensures it stretches across the screen.
-      */
       className="fixed inset-x-0 top-0 w-full z-[9999] bg-cream/90 backdrop-blur-md border-b border-brown/10 px-6 py-4 flex items-center justify-between"
       style={{ position: 'fixed', top: 0, left: 0, right: 0 }} 
     >
       <div className="flex items-center gap-4">
-        <FrogLogo className="w-8 h-8" color="#6B2D0E" shadow={false} />
+        {/* REPLACED FrogLogo WITH IMG TAG */}
+        <img src="/logo.png" alt="JDDP Logo" className="w-8 h-8" />
         <span className="font-display text-[0.65rem] tracking-[0.2em] font-bold text-brown uppercase">JDDP</span>
       </div>
 
