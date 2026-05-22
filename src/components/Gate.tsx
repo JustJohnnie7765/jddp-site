@@ -23,10 +23,11 @@ export default function Gate({ onSelectLanguage, isOpen, t }: GateProps) {
             transition={{ delay: 0.2, duration: 1 }}
             className="mb-8"
           >
-            {/* UPDATED: Swapped FrogLogo for the image */}
+            {/* The root path /logo.png now correctly points to your file */}
             <img src="/logo.png" alt="JDDP Logo" className="w-48 h-48 md:w-64 md:h-64" />
           </motion.div>
 
+          {/* Rest of your component remains the same */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,7 +43,7 @@ export default function Gate({ onSelectLanguage, isOpen, t }: GateProps) {
 
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ animate: 1 }}
             transition={{ delay: 1, duration: 1 }}
             className="flex flex-col items-center"
           >
