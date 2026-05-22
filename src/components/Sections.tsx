@@ -173,7 +173,7 @@ export function Connect({ t }: { t: Translation }) {
   return (
     <section id="connect" className="py-32 px-6 bg-cream flex flex-col items-center text-center">
       <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="mb-12">
-        <img src="/logo.png" alt="JDDP Logo" className="w-16 h-16 object-contain" />
+        <img src="/logo.png" alt="JDDP Logo" className="w-32 h-32 object-contain" />
       </motion.div>
       
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-xl space-y-6 mb-16">
