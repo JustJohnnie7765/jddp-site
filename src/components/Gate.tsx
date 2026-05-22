@@ -17,16 +17,21 @@ export default function Gate({ onSelectLanguage, isOpen, t }: GateProps) {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] bg-cream flex flex-col items-center justify-center p-6 text-center"
         >
+          {/* Logo Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 1 }}
             className="mb-8"
           >
-            {/* Logo from the public folder */}
-            <img src="/logo.png" alt="JDDP Logo" className="w-48 h-48 md:w-64 md:h-64" />
+            <img 
+              src="/logo.png" 
+              alt="JDDP Logo" 
+              className="w-48 h-48 md:w-64 md:h-64 object-contain" 
+            />
           </motion.div>
 
+          {/* Title Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
