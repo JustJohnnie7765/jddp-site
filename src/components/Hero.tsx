@@ -8,9 +8,9 @@ interface HeroProps {
 export default function Hero({ t }: { t: Translation }) {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
-      {/* Watermark Logo - Updated to image */}
+      {/* Watermark Logo - Updated to image with object-contain */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
-        <img src="/logo.png" alt="Watermark" className="w-[95vmin] h-[95vmin]" />
+        <img src="/logo.png" alt="Watermark" className="w-auto h-auto max-w-[95vmin] max-h-[95vmin] object-contain" />
       </div>
 
       <div className="relative z-10 text-center max-w-4xl flex flex-col items-center">
@@ -31,8 +31,8 @@ export default function Hero({ t }: { t: Translation }) {
            transition={{ delay: 0.5, duration: 1 }}
            className="mb-12"
         >
-          {/* Main Hero Logo - Updated to image */}
-          <img src="/logo.png" alt="JDDP Logo" className="w-24 h-24" />
+          {/* Main Hero Logo - Fixed with object-contain to prevent distortion */}
+          <img src="/logo.png" alt="JDDP Logo" className="w-24 h-24 object-contain" />
         </motion.div>
 
         <motion.h2
