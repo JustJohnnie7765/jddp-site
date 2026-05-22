@@ -4,30 +4,30 @@ import { Translation } from "../types";
 export default function Hero({ t }: { t: Translation }) {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
-      {/* Watermark - Absolute, stays in background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
+      {/* Watermark - Absolute position, sits behind */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05] z-0">
         <img src="/logo.png" alt="Watermark" className="w-[95vmin] h-[95vmin] object-contain" />
       </div>
 
-      {/* Main Content - Flex-col keeps everything stacked in the center properly */}
+      {/* Main Content - Flex centering */}
       <div className="relative z-10 text-center max-w-4xl flex flex-col items-center justify-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="eyebrow text-brown mb-8"
+          className="eyebrow text-brown mb-12"
         >
           {t.hero.eyebrow}
         </motion.span>
 
-        {/* Main Logo - Now correctly part of the flow */}
+        {/* Main Logo - Visible, layered correctly, and centered via flex flow */}
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 1 }}
-           className="mb-8"
+           className="mb-12"
         >
           <img src="/logo.png" alt="JDDP Logo" className="w-32 h-32 object-contain" />
         </motion.div>
@@ -50,7 +50,7 @@ export default function Hero({ t }: { t: Translation }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-12 flex flex-col items-center gap-4"
+        className="absolute bottom-12 flex flex-col items-center gap-4 z-10"
       >
         <span className="eyebrow text-warm text-[0.45rem] tracking-[0.4em]">{t.hero.scroll}</span>
         <motion.div
