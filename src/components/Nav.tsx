@@ -14,11 +14,10 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className="fixed inset-x-0 top-0 w-full z-[9999] bg-cream/90 backdrop-blur-md border-b border-brown/10 px-6 py-4 flex items-center justify-between"
-      style={{ position: 'fixed', top: 0, left: 0, right: 0 }} 
     >
       <div className="flex items-center gap-4">
-        {/* REPLACED FrogLogo WITH IMG TAG */}
-        <img src="/logo.png" alt="JDDP Logo" className="w-8 h-8" />
+        {/* Fixed: object-contain prevents the stretching */}
+        <img src="/logo.png" alt="JDDP Logo" className="w-8 h-8 object-contain" />
         <span className="font-display text-[0.65rem] tracking-[0.2em] font-bold text-brown uppercase">JDDP</span>
       </div>
 
@@ -50,10 +49,7 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a
-      href={href}
-      className="font-display text-[0.52rem] tracking-[0.25em] text-body/60 hover:text-brown hover:opacity-100 transition-all uppercase"
-    >
+    <a href={href} className="font-display text-[0.52rem] tracking-[0.25em] text-body/60 hover:text-brown hover:opacity-100 transition-all uppercase">
       {children}
     </a>
   );
