@@ -4,30 +4,33 @@ import { Translation } from "../types";
 export default function Hero({ t }: { t: Translation }) {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
-      {/* Watermark - Absolute position, stays in background */}
+      {/* Watermark - Remains fixed in the background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05] z-0">
         <img src="/logo.png" alt="Watermark" className="w-[95vmin] h-[95vmin] object-contain" />
       </div>
 
-      {/* Main Content - Flex centering */}
+      {/* Main Content - Flex-col with items-center forces everything to center perfectly */}
       <div className="relative z-10 text-center max-w-4xl flex flex-col items-center justify-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="eyebrow text-brown mb-12"
+          className="eyebrow text-brown mb-8"
         >
           {t.hero.eyebrow}
         </motion.span>
 
-        {/* Main Logo - object-position fixed to compensate for the TM symbol offset */}
+        {/* Main Logo 
+           - 'object-contain' maintains aspect ratio.
+           - 'translate-y-4' nudges it slightly down to align with watermark shoulders.
+        */}
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 1 }}
-           className="mb-12"
+           className="mb-8 mt-10 translate-y-4"
         >
           <img 
             src="/logo.png" 
