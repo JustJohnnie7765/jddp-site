@@ -198,3 +198,11 @@ function SocialLink({ href, children }: { href: string; children: React.ReactNod
     </a>
   );
 }
+
+export function Footer({ t }: { t: any }) {
+  return (
+    <footer className="py-12 text-center text-muted">
+      <p className="font-serif text-sm">© {new Date().getFullYear()} JDDP. All rights reserved.</p>
+    </footer>
+  );
+}
