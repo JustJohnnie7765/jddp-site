@@ -46,6 +46,16 @@ export default function FrogLogo({
           strokeWidth="3"
           strokeLinecap="round"
         />
+        {/* Trademark Symbol */}
+        <text 
+          x="75" 
+          y="20" 
+          fontSize="10" 
+          fill={color} 
+          fontFamily="sans-serif"
+        >
+          ™
+        </text>
       </svg>
     </motion.div>
   );
