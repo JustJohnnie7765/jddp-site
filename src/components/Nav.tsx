@@ -15,9 +15,9 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
       animate={{ y: 0 }}
       className="fixed inset-x-0 top-0 w-full z-[9999] bg-cream/90 backdrop-blur-md border-b border-brown/10 px-6 py-4 flex items-center justify-between"
     >
-      {/* Logo container locked to left */}
-      <div className="flex items-center gap-4 shrink-0">
-        <img src="/logo.png" alt="JDDP Logo" className="w-8 h-8 object-contain" />
+      <div className="flex items-center gap-3">
+        {/* Logo - kept simple and proportional */}
+        <img src="/logo.png" alt="JDDP Logo" className="w-10 h-10 object-contain" />
         <span className="font-display text-[0.65rem] tracking-[0.2em] font-bold text-brown uppercase">JDDP</span>
       </div>
 
@@ -28,7 +28,7 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
         <NavLink href="#connect">{t.nav.connect}</NavLink>
       </div>
 
-      <div className="flex items-center gap-3 shrink-0">
+      <div className="flex items-center gap-3">
         {(['EN', 'AF', 'XH'] as Language[]).map((lang) => (
           <button
             key={lang}
