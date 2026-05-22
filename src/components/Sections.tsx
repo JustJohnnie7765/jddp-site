@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import logo from "./logo.png";
+import logo from "../image.png";
 import { Translation } from "../types";
 
 export function TheWhy({ t }: { t: Translation }) {
