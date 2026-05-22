@@ -1,17 +1,16 @@
 import { motion } from "motion/react";
-import FrogLogo from "./FrogLogo";
 import { Translation } from "../types";
 
 interface HeroProps {
   t: Translation;
 }
 
-export default function Hero({ t }: HeroProps) {
+export default function Hero({ t }: { t: Translation }) {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
-      {/* Watermark Logo */}
+      {/* Watermark Logo - Updated to image */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
-        <FrogLogo className="w-[95vmin] h-[95vmin]" color="#6B2D0E" shadow={false} />
+        <img src="/logo.png" alt="Watermark" className="w-[95vmin] h-[95vmin]" />
       </div>
 
       <div className="relative z-10 text-center max-w-4xl flex flex-col items-center">
@@ -32,7 +31,8 @@ export default function Hero({ t }: HeroProps) {
            transition={{ delay: 0.5, duration: 1 }}
            className="mb-12"
         >
-          <FrogLogo className="w-24 h-24" color="#6B2D0E" />
+          {/* Main Hero Logo - Updated to image */}
+          <img src="/logo.png" alt="JDDP Logo" className="w-24 h-24" />
         </motion.div>
 
         <motion.h2
@@ -40,9 +40,6 @@ export default function Hero({ t }: HeroProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.7, duration: 0.8 }}
-          /* Action Taken: Increased drama as requested.
-             Bumped from text-5xl md:text-7xl to text-6xl md:text-8xl
-          */
           className="text-6xl md:text-8xl font-serif text-body leading-tight"
         >
           {t.hero.title.normal}
