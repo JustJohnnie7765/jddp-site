@@ -1,16 +1,12 @@
 import { motion } from "motion/react";
 import { Translation } from "../types";
 
-interface HeroProps {
-  t: Translation;
-}
-
 export default function Hero({ t }: { t: Translation }) {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
-      {/* Watermark Logo - Updated to image with object-contain */}
+      {/* Watermark Logo - Centered, constrained, and non-distorted */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
-        <img src="/logo.png" alt="Watermark" className="w-auto h-auto max-w-[95vmin] max-h-[95vmin] object-contain" />
+        <img src="/logo.png" alt="Watermark" className="w-[95vmin] h-[95vmin] object-contain" />
       </div>
 
       <div className="relative z-10 text-center max-w-4xl flex flex-col items-center">
@@ -24,14 +20,14 @@ export default function Hero({ t }: { t: Translation }) {
           {t.hero.eyebrow}
         </motion.span>
 
+        {/* Main Logo Container - mt-20 pushes it down */}
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 1 }}
-           className="mb-12"
+           className="mb-12 mt-20"
         >
-          {/* Main Hero Logo - Fixed with object-contain to prevent distortion */}
           <img src="/logo.png" alt="JDDP Logo" className="w-24 h-24 object-contain" />
         </motion.div>
 
@@ -48,7 +44,6 @@ export default function Hero({ t }: { t: Translation }) {
         </motion.h2>
       </div>
 
-      {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
