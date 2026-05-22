@@ -1,5 +1,4 @@
 import { motion, AnimatePresence } from "motion/react";
-import FrogLogo from "./FrogLogo";
 import { Language, Translation } from "../types";
 
 interface GateProps {
@@ -24,7 +23,8 @@ export default function Gate({ onSelectLanguage, isOpen, t }: GateProps) {
             transition={{ delay: 0.2, duration: 1 }}
             className="mb-8"
           >
-            <FrogLogo className="w-48 h-48 md:w-64 md:h-64" color="#6B2D0E" />
+            {/* UPDATED: Swapped FrogLogo for the image */}
+            <img src="/logo.png" alt="JDDP Logo" className="w-48 h-48 md:w-64 md:h-64" />
           </motion.div>
 
           <motion.div
