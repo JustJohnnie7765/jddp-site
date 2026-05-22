@@ -16,7 +16,6 @@ export default function Nav({ t, currentLang, onSelectLanguage }: NavProps) {
       className="fixed inset-x-0 top-0 w-full z-[9999] bg-cream/90 backdrop-blur-md border-b border-brown/10 px-6 py-4 flex items-center justify-between"
     >
       <div className="flex items-center gap-4">
-        {/* Fixed: object-contain prevents the stretching */}
         <img src="/logo.png" alt="JDDP Logo" className="w-8 h-8 object-contain" />
         <span className="font-display text-[0.65rem] tracking-[0.2em] font-bold text-brown uppercase">JDDP</span>
       </div>
