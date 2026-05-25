@@ -3,14 +3,20 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
-      {/* Watermark - Fixed in background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05] z-0">
-        <img src="/logo.png" alt="Watermark" className="w-[95vmin] h-[95vmin] object-contain" />
+    <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
+      
+      {/* Container that forces both Watermark and Logo to share the same center point */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+        {/* Watermark - Fixed in center, 5% opacity */}
+        <img 
+          src="/logo.png" 
+          alt="Watermark" 
+          className="w-[95vmin] h-[95vmin] object-contain opacity-[0.05]" 
+        />
       </div>
 
-      {/* Main Content - Flex centering container */}
-      <div className="relative z-10 text-center max-w-4xl flex flex-col items-center justify-center">
+      {/* Main Content Container - Centered */}
+      <div className="relative z-10 text-center flex flex-col items-center justify-center w-full max-w-4xl">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -21,22 +27,18 @@ export default function Hero({ t }: { t: Translation }) {
           {t.hero.eyebrow}
         </motion.span>
 
-        {/* Main Logo Container 
-            - 'object-position: 52% 50%' nudges the frog content 2% to the right.
-            - 'translate-y-4' keeps the alignment with watermark shoulders.
-        */}
+        {/* Foreground Logo - Centered in the Flex stack */}
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 1 }}
-           className="mb-8 mt-10 translate-y-4"
+           className="mb-8"
         >
           <img 
             src="/logo.png" 
             alt="JDDP Logo" 
-            className="w-32 h-32 object-contain" 
-            style={{ objectPosition: '52% 50%' }} 
+            className="w-48 h-48 object-contain" 
           />
         </motion.div>
 
