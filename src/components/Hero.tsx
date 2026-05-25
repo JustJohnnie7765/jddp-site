@@ -3,21 +3,20 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative h-screen w-full bg-cream overflow-hidden">
+    <section className="relative h-screen w-full bg-cream overflow-hidden flex items-center justify-center">
       
       {/* Visual Layer: Background Watermark + Main Logo */}
-      {/* 'absolute inset-0' pins this to the background of the screen */}
-      {/* 'flex items-center justify-center' anchors them to the dead center */}
+      {/* 'absolute inset-0' pins this to the background */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className="relative flex items-center justify-center">
-          {/* Watermark: Faded and fixed behind the logo */}
+          {/* Watermark: Increased to 110vmin to make it larger and more dominant */}
           <img 
             src="/watermark.png" 
             alt="Watermark" 
-            className="w-[80vmin] h-[80vmin] object-contain opacity-[0.05]" 
+            className="w-[110vmin] h-[110vmin] object-contain opacity-[0.15]" 
           />
           
-          {/* Main Logo: Absolutely positioned to center over the watermark */}
+          {/* Main Logo: Pinned absolutely to the center of the watermark div */}
           <motion.div
              initial={{ opacity: 0, scale: 0.95 }}
              whileInView={{ opacity: 1, scale: 1 }}
@@ -34,10 +33,8 @@ export default function Hero({ t }: { t: Translation }) {
         </div>
       </div>
 
-      {/* Content Layer: Text Only */}
-      {/* z-10 ensures this text ALWAYS sits on top of the images */}
-      {/* The flex setup here is now completely independent of the image layer */}
-      <div className="relative z-10 h-screen w-full flex flex-col items-center justify-center px-6 text-center">
+      {/* Content Layer: Text */}
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         <motion.span 
            initial={{ opacity: 0, y: 10 }}
            whileInView={{ opacity: 1, y: 0 }}
