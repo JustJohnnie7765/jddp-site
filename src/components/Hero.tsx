@@ -3,35 +3,37 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative min-h-screen w-full bg-cream overflow-hidden">
+    // Single Stage Container: Everything happens inside here
+    <section className="relative h-screen w-full bg-cream flex items-center justify-center overflow-hidden">
       
-      {/* Visual Layer: Locked to exact center of the screen */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-        {/* Watermark - Fixed in center */}
+      {/* Visual Layer: Background Watermark + Main Logo */}
+      {/* This div is absolutely positioned to cover the whole 'stage' */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-0">
         <img 
           src="/logo.png" 
           alt="Watermark" 
           className="w-[80vmin] h-[80vmin] object-contain opacity-[0.05]" 
         />
         
-        {/* Main Logo - Positioned directly over watermark */}
+        {/* Main Logo: Directly overlaid on the center of the watermark */}
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 1 }}
-           className="absolute"
+           className="-mt-[80vmin]" // Pulls the logo up onto the watermark center
         >
           <img 
             src="/logo.png" 
             alt="JDDP Logo" 
-            className="w-32 h-32 object-contain" 
+            className="w-32 h-32 object-contain pointer-events-auto" 
           />
         </motion.div>
       </div>
 
-      {/* Content Layer: Text sits on top */}
-      <div className="relative z-10 min-h-screen w-full flex flex-col items-center justify-center px-6 text-center">
+      {/* Content Layer: Text */}
+      {/* We use z-10 to make sure this stays on top of the Visual Layer */}
+      <div className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +62,7 @@ export default function Hero({ t }: { t: Translation }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-12 w-full flex flex-col items-center gap-4 z-20"
+        className="absolute bottom-12 flex flex-col items-center gap-4 z-20"
       >
         <span className="eyebrow text-warm text-[0.45rem] tracking-[0.4em]">{t.hero.scroll}</span>
         <motion.div
