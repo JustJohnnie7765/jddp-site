@@ -3,24 +3,24 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
+    <section className="relative min-h-screen w-full bg-cream overflow-hidden">
       
-      {/* Container: Both elements centered in the exact same spot */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        {/* Watermark - Low opacity */}
+      {/* Visual Layer: The Background Frog and Main Frog are locked together in this grid */}
+      <div className="absolute inset-0 z-0 grid place-items-center pointer-events-none">
+        {/* Watermark */}
         <img 
           src="/logo.png" 
           alt="Watermark" 
-          className="w-[80vmin] h-[80vmin] object-contain opacity-[0.05]" 
+          className="col-start-1 row-start-1 w-[80vmin] h-[80vmin] object-contain opacity-[0.05]" 
         />
         
-        {/* Main Logo - Sits directly on top of the watermark */}
+        {/* Main Logo */}
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 1 }}
-           className="absolute"
+           className="col-start-1 row-start-1"
         >
           <img 
             src="/logo.png" 
@@ -30,8 +30,10 @@ export default function Hero({ t }: { t: Translation }) {
         </motion.div>
       </div>
 
-      {/* Text Content */}
-      <div className="relative z-10 text-center max-w-4xl flex flex-col items-center justify-center">
+      {/* Content Layer: This sits ABOVE the images. 
+          We use 'pt-32' or 'mt' to ensure the text starts below the logo 
+          so it doesn't overlap. */}
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center pt-40">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +62,7 @@ export default function Hero({ t }: { t: Translation }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-12 flex flex-col items-center gap-4 z-10"
+        className="absolute bottom-12 w-full flex flex-col items-center gap-4 z-20"
       >
         <span className="eyebrow text-warm text-[0.45rem] tracking-[0.4em]">{t.hero.scroll}</span>
         <motion.div
