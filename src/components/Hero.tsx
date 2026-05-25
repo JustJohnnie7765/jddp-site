@@ -4,12 +4,12 @@ import { Translation } from "../types";
 export default function Hero({ t }: { t: Translation }) {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-cream px-6">
-      {/* Watermark - Background layer */}
+      {/* Watermark - Fixed in background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05] z-0">
         <img src="/logo.png" alt="Watermark" className="w-[95vmin] h-[95vmin] object-contain" />
       </div>
 
-      {/* Main Content - Flex centering */}
+      {/* Main Content - Flex centering container */}
       <div className="relative z-10 text-center max-w-4xl flex flex-col items-center justify-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
@@ -22,22 +22,21 @@ export default function Hero({ t }: { t: Translation }) {
         </motion.span>
 
         {/* Main Logo Container 
-            - w-32 h-32 creates a rigid, perfectly centered square container
-            - object-contain ensures the image fits inside
-            - object-position: 54% 50% shifts the frog slightly left to counter the TM
+            - 'object-position: 52% 50%' nudges the frog content 2% to the right.
+            - 'translate-y-4' keeps the alignment with watermark shoulders.
         */}
         <motion.div
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
            transition={{ delay: 0.5, duration: 1 }}
-           className="mb-8"
+           className="mb-8 mt-10 translate-y-4"
         >
           <img 
             src="/logo.png" 
             alt="JDDP Logo" 
             className="w-32 h-32 object-contain" 
-            style={{ objectPosition: '54% 50%' }} 
+            style={{ objectPosition: '52% 50%' }} 
           />
         </motion.div>
 
