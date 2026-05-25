@@ -3,11 +3,12 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative min-h-screen w-full bg-cream overflow-hidden">
+    // 1. Main Stage: Forces height to full screen
+    <section className="relative h-screen w-full bg-cream overflow-hidden">
       
-      {/* 1. Visual Layer: Pin to center using absolute/fixed coordinates */}
-      {/* This completely detaches the images from the text flow, stopping the "pushing down" */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+      {/* 2. Visual Layer: The images are pinned to the CENTER of the screen */}
+      {/* 'absolute inset-0' pins it to the full viewport */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className="relative flex items-center justify-center">
           {/* Watermark */}
           <img 
@@ -16,7 +17,7 @@ export default function Hero({ t }: { t: Translation }) {
             className="w-[80vmin] h-[80vmin] object-contain opacity-[0.05]" 
           />
           
-          {/* Main Logo - Pinned to the center of the watermark div */}
+          {/* Main Logo: Pinned to the center of the watermark div */}
           <motion.div
              initial={{ opacity: 0, scale: 0.95 }}
              whileInView={{ opacity: 1, scale: 1 }}
@@ -33,9 +34,8 @@ export default function Hero({ t }: { t: Translation }) {
         </div>
       </div>
 
-      {/* 2. Content Layer: Text */}
-      {/* This layer is now completely independent and won't affect the images */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center">
+      {/* 3. Content Layer: The text sits in its own flex box, centered, with high Z-index */}
+      <div className="relative z-10 h-screen w-full flex flex-col items-center justify-center px-6 text-center">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ export default function Hero({ t }: { t: Translation }) {
         </motion.h2>
       </div>
 
-      {/* 3. Scroll Indicator */}
+      {/* 4. Scroll Indicator: Always at the bottom */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
