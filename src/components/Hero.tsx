@@ -3,9 +3,9 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative h-screen w-full bg-cream overflow-hidden flex flex-col items-center pt-20 pb-6">
+    <section className="w-full bg-cream overflow-hidden flex flex-col items-center justify-center px-6" style={{ height: 'calc(100vh - 60px)' }}>
 
-      {/* EYEBROW — sits right below navbar */}
+      {/* Eyebrow */}
       <motion.span
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -15,10 +15,10 @@ export default function Hero({ t }: { t: Translation }) {
         {t.hero.eyebrow}
       </motion.span>
 
-      {/* FROG ZONE — flex-1 means it fills ALL space between eyebrow and text */}
-      <div className="relative flex-1 w-full flex items-center justify-center">
+      {/* Frog container — fixed at 42% of usable viewport height */}
+      <div className="relative w-full flex-shrink-0" style={{ height: '42vh' }}>
 
-        {/* Watermark fills the entire zone */}
+        {/* Watermark fills full container */}
         <motion.img
           src="/watermark.png"
           alt=""
@@ -29,23 +29,24 @@ export default function Hero({ t }: { t: Translation }) {
           className="absolute inset-0 w-full h-full object-contain pointer-events-none"
         />
 
-        {/* TM logo — moved DOWN to 58% so it sits on the body not the face */}
+        {/* TM logo — 60% down = sits on torso not head */}
         <motion.img
           src="/logo.png"
           alt="JDDP Logo"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
-          className="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-[10%] w-auto object-contain z-10"
+          className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-[13%] w-auto object-contain z-10"
         />
       </div>
 
-      {/* HEADLINE — sits naturally below frog zone, overlapping via negative margin */}
+      {/* Headline — negative margin overlaps frog legs */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.9, ease: "easeOut" }}
-        className="-mt-[8%] w-[90vw] font-serif text-body leading-[1.05] text-center z-10"
+        className="w-[90vw] font-serif text-body leading-[1.05] text-center z-10"
+        style={{ marginTop: '-4vh' }}
       >
         <span className="block text-6xl md:text-8xl">
           {t.hero.title.normal}
@@ -56,12 +57,12 @@ export default function Hero({ t }: { t: Translation }) {
         </span>
       </motion.h2>
 
-      {/* DISCOVER — in normal flow, always visible below text */}
+      {/* Discover — always inside section, in normal flow */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="mt-4 flex flex-col items-center gap-1 text-brown z-20"
+        className="mt-5 flex flex-col items-center gap-1 text-brown z-20"
       >
         <motion.div
           animate={{ y: [0, 5, 0] }}
