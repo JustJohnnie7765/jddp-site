@@ -98,7 +98,7 @@ export const translations: Record<Language, Translation> = {
       title: {
         normal: "For the ",
         italic: "quietly",
-        after: " Brave."
+        after: "Brave."
       },
       subtitle: "",
       scroll: "DISCOVER"
@@ -193,7 +193,7 @@ export const translations: Record<Language, Translation> = {
       title: {
         normal: "Vir die ",
         italic: "stilweg",
-        after: " Dapper."
+        after: "Dapper."
       },
       subtitle: "",
       scroll: "ONTDEK"
@@ -213,7 +213,7 @@ export const translations: Record<Language, Translation> = {
       date: "9 NOVEMBER 2019 · 16:56 · HAZYVIEW",
       title: "Waar dit begin het.",
       body: [
-        "Die eerste JDDP-logo is op ‘n foon geskep. Nie in ‘n ateljee nie. Op ‘n stil vakansie in Hazyview - terwyl die stigter ver was van sy dogters in Kaapstad, en sy ma in die hospitaal was in Bloemfontein.",
+        "Die eerste JDDP-logo is op 'n foon geskep. Nie in 'n ateljee nie. Op 'n stil vakansie in Hazyview - terwyl die stigter ver was van sy dogters in Kaapstad, en sy ma in die hospitaal was in Bloemfontein.",
         "Een maand en drie dae voor sy gesterf het.",
         "Alleen met sy gedagtes, en die vrees om haar te verloor, het 'n herinnering opgeduik. Een wat sy baie kere van vertel het - altyd met trots, altyd met blydskap. Een van die vroegste herinneringe wat hulle gedeel het.",
         "Sy was bitter bang vir paddas. 'n Diep vrees, om eerlik te wees. 'n Groterige padda het sy pad in die huis gevind een aand en haar in die gang tot stilstaan geruk - sy het gevries, sy kon nie verbykom nie. Toe roep sy vir \"boetie\" soos sy hom genoem het. Hy was skaars twee jaar oud. Sy het hierdie peuter aangewys om die geel piepiepot te gaan haal, wat sy gebruik het om die padda mee te bedek - en so het sy 'n weg deur haar vrees gevind.",
@@ -223,7 +223,7 @@ export const translations: Record<Language, Translation> = {
         "Dit is die paradoks wat in die naam leef. Johannie die Dapper Paddatjie klink soos 'n kinderstorie. En dit is. Maar dit is ook iets anders: 'n vraag oor moed, aan wie ons dit gee, en oor die stil maniere waarop ware liefde te werk gaan tussen mense, sonder dat een van hulle dit ten volle besef.",
         "JDDP is gebore uit daardie herinnering. Uit daardie band. Uit die vrees om iemand te verloor - en die keuse om jou hart oop te hou vir die pyn, sodat liefde ten volle verstaan en geleef kan word."
       ],
-      quote: "Sommige handelsmerke begin met ‘n mark. Hierdie een het begin met ‘n Ma, ‘n Moeder, Moeksie."
+      quote: "Sommige handelsmerke begin met 'n mark. Hierdie een het begin met 'n Ma, 'n Moeder, Moeksie."
     },
     symbols: {
       title: "DIE PADDA AS SIMBOOL",
@@ -288,7 +288,7 @@ export const translations: Record<Language, Translation> = {
       title: {
         normal: "Kwabo ",
         italic: "bakhaliphileyo",
-        after: " ngokuzolileyo."
+        after: "ngokuzolileyo."
       },
       subtitle: "",
       scroll: "FUMANA"
