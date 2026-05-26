@@ -3,45 +3,49 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative h-screen w-full bg-cream overflow-hidden">
+    <section className="relative h-screen w-full bg-cream overflow-hidden flex flex-col items-center pt-20 pb-6">
 
-      {/* WATERMARK — 85vh tall, centered in viewport, always fills the screen */}
-      <motion.img
-        src="/watermark.png"
-        alt=""
-        aria-hidden="true"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.22 }}
-        transition={{ delay: 0.2, duration: 1.2 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[85vh] w-auto object-contain pointer-events-none"
-      />
-
-      {/* EYEBROW — sits above frog head */}
+      {/* EYEBROW — sits right below navbar */}
       <motion.span
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
-        className="absolute top-[13vh] left-1/2 -translate-x-1/2 whitespace-nowrap eyebrow text-brown tracking-widest uppercase text-sm z-20"
+        className="eyebrow text-brown tracking-widest uppercase text-sm z-20 mb-0"
       >
         {t.hero.eyebrow}
       </motion.span>
 
-      {/* TM LOGO — on frog torso, not head */}
-      <motion.img
-        src="/logo.png"
-        alt="JDDP Logo"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
-        className="absolute top-[42vh] left-1/2 -translate-x-1/2 -translate-y-1/2 h-[7vh] w-auto object-contain z-10"
-      />
+      {/* FROG ZONE — flex-1 means it fills ALL space between eyebrow and text */}
+      <div className="relative flex-1 w-full flex items-center justify-center">
 
-      {/* HEADLINE — overlaps lower frog body and legs */}
+        {/* Watermark fills the entire zone */}
+        <motion.img
+          src="/watermark.png"
+          alt=""
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.22 }}
+          transition={{ delay: 0.2, duration: 1.2 }}
+          className="absolute inset-0 w-full h-full object-contain pointer-events-none"
+        />
+
+        {/* TM logo — moved DOWN to 58% so it sits on the body not the face */}
+        <motion.img
+          src="/logo.png"
+          alt="JDDP Logo"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
+          className="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-[10%] w-auto object-contain z-10"
+        />
+      </div>
+
+      {/* HEADLINE — sits naturally below frog zone, overlapping via negative margin */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.9, ease: "easeOut" }}
-        className="absolute top-[58vh] left-1/2 -translate-x-1/2 w-[90vw] font-serif text-body leading-[1.1] text-center z-10"
+        className="-mt-[8%] w-[90vw] font-serif text-body leading-[1.05] text-center z-10"
       >
         <span className="block text-6xl md:text-8xl">
           {t.hero.title.normal}
@@ -52,15 +56,15 @@ export default function Hero({ t }: { t: Translation }) {
         </span>
       </motion.h2>
 
-      {/* DISCOVER — always at 88vh, always on screen */}
+      {/* DISCOVER — in normal flow, always visible below text */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="absolute top-[88vh] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-brown z-20"
+        className="mt-4 flex flex-col items-center gap-1 text-brown z-20"
       >
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={{ y: [0, 5, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-1"
         >
