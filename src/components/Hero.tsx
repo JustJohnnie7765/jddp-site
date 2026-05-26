@@ -3,52 +3,50 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="relative h-screen w-full bg-cream overflow-hidden">
+    <section className="relative h-screen w-full bg-cream overflow-hidden flex flex-col items-center justify-between py-[8vh]">
 
-      {/* COMPOSITION — anchored 12% from top, flows down naturally */}
-      <div className="absolute top-[12%] left-0 right-0 flex flex-col items-center text-center px-6">
+      {/* TOP — Eyebrow */}
+      <motion.span
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        className="eyebrow text-brown tracking-widest uppercase text-sm z-20"
+      >
+        {t.hero.eyebrow}
+      </motion.span>
 
-        {/* Eyebrow */}
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="eyebrow text-brown tracking-widest uppercase text-sm mb-4"
-        >
-          {t.hero.eyebrow}
-        </motion.span>
+      {/* MIDDLE — Frogs, fills all available space between eyebrow and text */}
+      <div className="relative flex-1 w-full flex items-center justify-center">
 
-        {/* Frog block */}
-        <div className="relative w-[52vmin] h-[52vmin] flex-shrink-0">
+        {/* Watermark — fills the middle space */}
+        <motion.img
+          src="/watermark.png"
+          alt=""
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.22 }}
+          transition={{ delay: 0.2, duration: 1.2 }}
+          className="absolute w-[90%] h-[90%] object-contain"
+        />
 
-          {/* Watermark */}
-          <motion.img
-            src="/watermark.png"
-            alt=""
-            aria-hidden="true"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.22 }}
-            transition={{ delay: 0.2, duration: 1.2 }}
-            className="absolute inset-0 w-full h-full object-contain"
-          />
+        {/* TM logo — on the frog body */}
+        <motion.img
+          src="/logo.png"
+          alt="JDDP Logo"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
+          className="relative w-[7vw] h-[7vw] min-w-[48px] min-h-[48px] object-contain z-10 -mt-[4vh]"
+        />
+      </div>
 
-          {/* TM logo — on body, not head */}
-          <motion.img
-            src="/logo.png"
-            alt="JDDP Logo"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
-            className="absolute top-[44%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[15%] h-[15%] object-contain z-10"
-          />
-        </div>
-
-        {/* Headline — overlaps frog legs */}
+      {/* BOTTOM — Headline then Discover, stacked tightly */}
+      <div className="flex flex-col items-center text-center w-full px-6 -mt-[6vh]">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.9, ease: "easeOut" }}
-          className="-mt-[14vmin] w-[88vw] font-serif text-body leading-[1.05] text-center z-10"
+          className="font-serif text-body leading-[1.05] text-center z-10 w-full"
         >
           <span className="block text-6xl md:text-8xl">
             {t.hero.title.normal}
@@ -59,17 +57,17 @@ export default function Hero({ t }: { t: Translation }) {
           </span>
         </motion.h2>
 
-        {/* Discover — in normal flow, sits directly below "Brave." */}
+        {/* Discover — sits directly below headline */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.6 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          className="mt-8 flex flex-col items-center gap-2 text-brown"
+          className="mt-5 flex flex-col items-center gap-1 text-brown"
         >
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-1"
           >
             <span className="eyebrow tracking-widest uppercase text-xs">
               {t.hero.scroll}
@@ -79,8 +77,8 @@ export default function Hero({ t }: { t: Translation }) {
             </svg>
           </motion.div>
         </motion.div>
-
       </div>
+
     </section>
   );
 }
