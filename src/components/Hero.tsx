@@ -3,22 +3,28 @@ import { Translation } from "../types";
 
 export default function Hero({ t }: { t: Translation }) {
   return (
-    <section className="w-full bg-cream overflow-hidden flex flex-col items-center justify-center px-6" style={{ height: 'calc(100vh - 60px)' }}>
-
-      {/* Eyebrow */}
+    <section
+      className="w-full bg-cream overflow-hidden"
+      style={{
+        height: 'calc(100vh - 64px)',
+        display: 'grid',
+        gridTemplateRows: '3vh 1fr auto 6vh',
+      }}
+    >
+      {/* ROW 1 — Eyebrow */}
       <motion.span
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
-        className="eyebrow text-brown tracking-widest uppercase text-sm z-20 mb-0"
+        className="self-center justify-self-center eyebrow text-brown tracking-widest uppercase text-sm z-20"
       >
         {t.hero.eyebrow}
       </motion.span>
 
-      {/* Frog container — fixed at 42% of usable viewport height */}
-      <div className="relative w-full flex-shrink-0" style={{ height: '42vh' }}>
+      {/* ROW 2 — Frog zone: 1fr fills EVERY remaining pixel */}
+      <div className="relative w-full">
 
-        {/* Watermark fills full container */}
+        {/* Watermark fills entire row */}
         <motion.img
           src="/watermark.png"
           alt=""
@@ -29,24 +35,25 @@ export default function Hero({ t }: { t: Translation }) {
           className="absolute inset-0 w-full h-full object-contain pointer-events-none"
         />
 
-        {/* TM logo — 60% down = sits on torso not head */}
+        {/* TM logo — 45% down = sits on torso, not head, not legs */}
         <motion.img
           src="/logo.png"
           alt="JDDP Logo"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
-          className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 h-[13%] w-auto object-contain z-10"
+          style={{ top: '45%', left: '50%', transform: 'translate(-50%, -50%)', height: '11%' }}
+          className="absolute w-auto object-contain z-10"
         />
       </div>
 
-      {/* Headline — negative margin overlaps frog legs */}
+      {/* ROW 3 — Headline overlaps into frog row via negative margin */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.7, duration: 0.9, ease: "easeOut" }}
-        className="w-[90vw] font-serif text-body leading-[1.05] text-center z-10"
-        style={{ marginTop: '-4vh' }}
+        className="w-full font-serif text-body leading-[1.05] text-center z-10 px-6"
+        style={{ marginTop: '-8vh' }}
       >
         <span className="block text-6xl md:text-8xl">
           {t.hero.title.normal}
@@ -57,12 +64,12 @@ export default function Hero({ t }: { t: Translation }) {
         </span>
       </motion.h2>
 
-      {/* Discover — always inside section, in normal flow */}
+      {/* ROW 4 — Discover: exactly 6vh, always visible */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="mt-5 flex flex-col items-center gap-1 text-brown z-20"
+        className="self-center justify-self-center flex flex-col items-center gap-1 text-brown z-20"
       >
         <motion.div
           animate={{ y: [0, 5, 0] }}
