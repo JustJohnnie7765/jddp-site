@@ -14,19 +14,21 @@ export default function Hero({ t }: { t: Translation }) {
   };
 
   return (
-    <section className="w-full bg-cream overflow-hidden flex flex-col items-center justify-center" style={{ height: 'calc(100vh - 64px)' }}>
-
-      <div className="relative flex-shrink-0" style={{ width: 'min(100vw, 96vh)' }}>
+    <section
+      className="w-full bg-cream overflow-hidden flex flex-col items-center justify-center"
+      style={{ height: 'calc(100vh - 160px)' }}
+    >
+      <div className="relative flex-shrink-0" style={{ width: 'min(100vw, 86vh)' }}>
 
         {/* Watermark box */}
         <div className="relative w-full" style={{ paddingTop: '82%' }}>
 
-          {/* Eyebrow inside whitespace */}
+          {/* Eyebrow */}
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-display uppercase text-brown tracking-widest font-light z-10"
+            className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-display uppercase text-brown font-light z-10"
             style={{ top: '5%', fontSize: '0.55rem', letterSpacing: '0.3em' }}
           >
             {t.hero.eyebrow}
@@ -43,7 +45,7 @@ export default function Hero({ t }: { t: Translation }) {
             className="absolute inset-0 w-full h-full object-contain pointer-events-none z-0"
           />
 
-          {/* Small brown frog — CSS mask, guaranteed brown */}
+          {/* Small brown frog */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -61,7 +63,7 @@ export default function Hero({ t }: { t: Translation }) {
           />
         </div>
 
-        {/* Headline overlaps frog feet */}
+        {/* Headline */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,7 +93,7 @@ export default function Hero({ t }: { t: Translation }) {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-1"
         >
-          <span className="font-display uppercase tracking-widest font-light" style={{ fontSize: '0.5rem' }}>
+          <span className="font-display uppercase font-light" style={{ fontSize: '0.5rem', letterSpacing: '0.3em' }}>
             {t.hero.scroll}
           </span>
           <svg width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" strokeWidth="1.5">
