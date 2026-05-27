@@ -1,21 +1,11 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect } from "react";
 import { Language, translations } from "./types";
 import Gate from "./components/Gate";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import {
-  TheWhy,
-  OriginStory,
-  SymbolsGrid,
-  Philosophy,
-  Waitlist,
-  Connect,
-  Footer
+  TheWhy, OriginStory, SymbolsGrid,
+  Philosophy, Waitlist, Connect, Footer
 } from "./components/Sections";
 
 export default function App() {
@@ -40,22 +30,16 @@ export default function App() {
 
   return (
     <div className="min-h-screen selection:bg-brown selection:text-cream bg-cream">
-      <Gate 
-        t={translations['EN']} 
-        isOpen={gateOpen} 
-        onSelectLanguage={handleSelectLanguage} 
+      <Gate
+        t={translations['EN']}
+        isOpen={gateOpen}
+        onSelectLanguage={handleSelectLanguage}
       />
-      
       {!gateOpen && (
         <>
-          <Nav 
-            t={t} 
-            currentLang={lang} 
-            onSelectLanguage={handleSelectLanguage} 
-          />
-          
+          <Nav t={t} currentLang={lang} onSelectLanguage={handleSelectLanguage} />
+          <Hero t={t} />
           <main className="animate-fade-up pt-24">
-            <Hero t={t} />
             <TheWhy t={t} />
             <OriginStory t={t} />
             <Philosophy t={t} />
