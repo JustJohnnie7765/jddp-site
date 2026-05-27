@@ -61,10 +61,10 @@ export default function Hero({ t }: { t: Translation }) {
             transition={{ delay: 0.5, duration: 1.2 }}
             className="absolute z-10"
             style={{
-              top: '42%',
+              top: '55%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              width: '19%',
+              width: '25%',
               aspectRatio: '1/1',
               backgroundColor: '#6B2D0E',
               ...maskStyle,
