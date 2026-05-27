@@ -16,9 +16,9 @@ export default function Hero({ t }: { t: Translation }) {
   return (
     <section
       className="w-full bg-cream overflow-hidden flex flex-col items-center justify-center"
-      style={{ height: 'calc(100vh - 64px)' }}
+      style={{ height: '100vh', paddingTop: '64px', boxSizing: 'border-box' }}
     >
-      <div className="relative flex-shrink-0" style={{ width: 'min(100vw, 96vh)' }}>
+      <div className="relative flex-shrink-0" style={{ width: 'min(96vw, 700px)' }}>
 
         <div className="relative w-full" style={{ paddingTop: '82%' }}>
 
@@ -52,7 +52,7 @@ export default function Hero({ t }: { t: Translation }) {
               left: '50%',
               transform: 'translate(-50%, -50%)',
               width: '19%',
-              height: '19%',
+              aspectRatio: '1/1',
               backgroundColor: '#6B2D0E',
               ...maskStyle,
             }}
