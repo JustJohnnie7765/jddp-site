@@ -16,14 +16,12 @@ export default function Hero({ t }: { t: Translation }) {
   return (
     <section
       className="w-full bg-cream overflow-hidden flex flex-col items-center justify-center"
-      style={{ height: 'calc(100vh - 160px)' }}
+      style={{ height: 'calc(100vh - 64px)' }}
     >
-      <div className="relative flex-shrink-0" style={{ width: 'min(100vw, 86vh)' }}>
+      <div className="relative flex-shrink-0" style={{ width: 'min(100vw, 96vh)' }}>
 
-        {/* Watermark box */}
         <div className="relative w-full" style={{ paddingTop: '82%' }}>
 
-          {/* Eyebrow */}
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -34,7 +32,6 @@ export default function Hero({ t }: { t: Translation }) {
             {t.hero.eyebrow}
           </motion.span>
 
-          {/* Large watermark */}
           <motion.img
             src="/watermark.png"
             alt=""
@@ -45,7 +42,6 @@ export default function Hero({ t }: { t: Translation }) {
             className="absolute inset-0 w-full h-full object-contain pointer-events-none z-0"
           />
 
-          {/* Small brown frog */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -63,7 +59,6 @@ export default function Hero({ t }: { t: Translation }) {
           />
         </div>
 
-        {/* Headline */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -81,7 +76,6 @@ export default function Hero({ t }: { t: Translation }) {
         </motion.h2>
       </div>
 
-      {/* Discover */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
