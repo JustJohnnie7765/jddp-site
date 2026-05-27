@@ -15,7 +15,7 @@ export default function Hero({ t }: { t: Translation }) {
 
   return (
     <section
-      className="w-full bg-cream overflow-hidden"
+      className="w-full bg-cream"
       style={{
         height: '100dvh',
         paddingTop: '64px',
@@ -31,42 +31,52 @@ export default function Hero({ t }: { t: Translation }) {
         className="relative flex-shrink-0"
         style={{ width: 'min(92vw, clamp(400px, 76dvh, 900px))' }}
       >
-        <div className="relative w-full overflow-hidden" style={{ paddingTop: '82%' }}>
+        {/* Watermark — no scale(), overflow visible so it fills space */}
+        <motion.img
+          src="/watermark.png"
+          alt=""
+          aria-hidden="true"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.18 }}
+          transition={{ delay: 0.2, duration: 1.2 }}
+          className="pointer-events-none"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '150%',
+            height: 'auto',
+            zIndex: 0,
+          }}
+        />
+
+        <div className="relative w-full" style={{ paddingTop: '82%', zIndex: 1 }}>
 
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-display uppercase text-brown font-light z-10"
-            style={{ top: '5%', fontSize: '0.55rem', letterSpacing: '0.3em' }}
+            className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-display uppercase text-brown font-light"
+            style={{ top: '2%', fontSize: '0.55rem', letterSpacing: '0.3em', zIndex: 2 }}
           >
             {t.hero.eyebrow}
           </motion.span>
 
-          <motion.img
-            src="/watermark.png"
-            alt=""
-            aria-hidden="true"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.18 }}
-            transition={{ delay: 0.2, duration: 1.2 }}
-            className="absolute inset-0 w-full h-full object-contain pointer-events-none z-0"
-            style={{ transform: 'scale(2)', transformOrigin: 'center center' }}
-          />
-
-          {/* top: 42% places it on the body after scale(2) zoom */}
+          {/* Small frog — centered on the wm-box, no scale confusion */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 1.2 }}
-            className="absolute z-10"
             style={{
-              top: '55%',
+              position: 'absolute',
+              top: '44%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              width: '25%',
+              width: '18%',
               aspectRatio: '1/1',
               backgroundColor: '#6B2D0E',
+              zIndex: 2,
               ...maskStyle,
             }}
           />
@@ -76,8 +86,8 @@ export default function Hero({ t }: { t: Translation }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.9 }}
-          className="w-full font-serif text-body text-center z-10 px-2"
-          style={{ marginTop: '-38%', lineHeight: 1.08 }}
+          className="w-full font-serif text-body text-center px-2"
+          style={{ marginTop: '-38%', lineHeight: 1.08, position: 'relative', zIndex: 2 }}
         >
           <span className="block text-6xl md:text-8xl font-normal">
             {t.hero.title.normal}
@@ -93,7 +103,13 @@ export default function Hero({ t }: { t: Translation }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)' }}
+        style={{
+          position: 'absolute',
+          bottom: '20px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 10,
+        }}
         className="flex flex-col items-center gap-1 text-brown"
       >
         <motion.div
