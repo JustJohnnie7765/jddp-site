@@ -30,11 +30,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen selection:bg-brown selection:text-cream bg-cream">
-      <Gate
-        t={translations['EN']}
-        isOpen={gateOpen}
-        onSelectLanguage={handleSelectLanguage}
-      />
+      <Gate t={translations['EN']} isOpen={gateOpen} onSelectLanguage={handleSelectLanguage} />
       {!gateOpen && (
         <>
           <Nav t={t} currentLang={lang} onSelectLanguage={handleSelectLanguage} />
