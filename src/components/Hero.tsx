@@ -18,7 +18,7 @@ export default function Hero({ t }: { t: Translation }) {
       className="w-full bg-cream overflow-hidden flex flex-col items-center justify-center"
       style={{ height: '100vh', paddingTop: '64px', boxSizing: 'border-box' }}
     >
-      <div className="relative flex-shrink-0" style={{ width: 'min(96vw, 700px)' }}>
+      <div className="relative flex-shrink-0" style={{ width: 'min(92vw, clamp(400px, 80vh, 900px))' }}>
 
         <div className="relative w-full" style={{ paddingTop: '82%' }}>
 
@@ -48,7 +48,7 @@ export default function Hero({ t }: { t: Translation }) {
             transition={{ delay: 0.5, duration: 1.2 }}
             className="absolute z-10"
             style={{
-              top: '48%',
+              top: '38%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
               width: '19%',
