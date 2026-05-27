@@ -54,13 +54,14 @@ export default function Hero({ t }: { t: Translation }) {
             style={{ transform: 'scale(2)', transformOrigin: 'center center' }}
           />
 
+          {/* top: 42% places it on the body after scale(2) zoom */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 1.2 }}
             className="absolute z-10"
             style={{
-              top: '30%',
+              top: '42%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
               width: '19%',
@@ -88,7 +89,6 @@ export default function Hero({ t }: { t: Translation }) {
         </motion.h2>
       </div>
 
-      {/* Discover — absolutely pinned, cannot be pushed off screen */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
