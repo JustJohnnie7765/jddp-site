@@ -15,101 +15,93 @@ export default function Hero({ t }: { t: Translation }) {
 
   return (
     <section
-      className="w-full bg-cream"
+      className="w-full bg-cream overflow-hidden"
       style={{
-        height: '100vh',
+        height: '100dvh',
         paddingTop: '64px',
         boxSizing: 'border-box',
-        display: 'grid',
-        gridTemplateRows: '1fr auto',
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
-      {/* ROW 1 — composition, vertically centered */}
-      <div className="flex items-center justify-center overflow-hidden">
-        <div
-          className="relative flex-shrink-0"
-          style={{ width: 'min(92vw, clamp(400px, 80vh, 900px))' }}
-        >
-          {/* Watermark box */}
-          <div
-            className="relative w-full overflow-hidden"
-            style={{ paddingTop: '82%' }}
+      <div
+        className="relative flex-shrink-0"
+        style={{ width: 'min(92vw, clamp(400px, 76dvh, 900px))' }}
+      >
+        <div className="relative w-full overflow-hidden" style={{ paddingTop: '82%' }}>
+
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-display uppercase text-brown font-light z-10"
+            style={{ top: '5%', fontSize: '0.55rem', letterSpacing: '0.3em' }}
           >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap font-display uppercase text-brown font-light z-10"
-              style={{ top: '5%', fontSize: '0.55rem', letterSpacing: '0.3em' }}
-            >
-              {t.hero.eyebrow}
-            </motion.span>
+            {t.hero.eyebrow}
+          </motion.span>
 
-            {/* Watermark — scale(2) zooms past the whitespace padding in the PNG */}
-            <motion.img
-              src="/watermark.png"
-              alt=""
-              aria-hidden="true"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.18 }}
-              transition={{ delay: 0.2, duration: 1.2 }}
-              className="absolute inset-0 w-full h-full object-contain pointer-events-none z-0"
-              style={{ transform: 'scale(2)', transformOrigin: 'center center' }}
-            />
+          <motion.img
+            src="/watermark.png"
+            alt=""
+            aria-hidden="true"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.18 }}
+            transition={{ delay: 0.2, duration: 1.2 }}
+            className="absolute inset-0 w-full h-full object-contain pointer-events-none z-0"
+            style={{ transform: 'scale(2)', transformOrigin: 'center center' }}
+          />
 
-            {/* Small brown frog — top:33% aligns with chest of scaled watermark */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 1.2 }}
-              className="absolute z-10"
-              style={{
-                top: '33%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '19%',
-                aspectRatio: '1/1',
-                backgroundColor: '#6B2D0E',
-                ...maskStyle,
-              }}
-            />
-          </div>
-
-          {/* Headline */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.9 }}
-            className="w-full font-serif text-body text-center z-10 px-2"
-            style={{ marginTop: '-38%', lineHeight: 1.08 }}
-          >
-            <span className="block text-6xl md:text-8xl font-normal">
-              {t.hero.title.normal}
-              <em className="text-brown italic">{t.hero.title.italic}</em>
-            </span>
-            <span className="block text-6xl md:text-8xl font-normal">
-              {t.hero.title.after.trim()}
-            </span>
-          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 1.2 }}
+            className="absolute z-10"
+            style={{
+              top: '30%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '19%',
+              aspectRatio: '1/1',
+              backgroundColor: '#6B2D0E',
+              ...maskStyle,
+            }}
+          />
         </div>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.9 }}
+          className="w-full font-serif text-body text-center z-10 px-2"
+          style={{ marginTop: '-38%', lineHeight: 1.08 }}
+        >
+          <span className="block text-6xl md:text-8xl font-normal">
+            {t.hero.title.normal}
+            <em className="text-brown italic">{t.hero.title.italic}</em>
+          </span>
+          <span className="block text-6xl md:text-8xl font-normal">
+            {t.hero.title.after.trim()}
+          </span>
+        </motion.h2>
       </div>
 
-      {/* ROW 2 — discover, always at bottom */}
+      {/* Discover — absolutely pinned, cannot be pushed off screen */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 1.4, duration: 0.8 }}
-        className="flex flex-col items-center gap-1 text-brown pb-5"
+        style={{ position: 'absolute', bottom: '20px', left: '50%', transform: 'translateX(-50%)' }}
+        className="flex flex-col items-center gap-1 text-brown"
       >
         <motion.div
           animate={{ y: [0, 5, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-1"
         >
-          <span
-            className="font-display uppercase font-light"
-            style={{ fontSize: '0.5rem', letterSpacing: '0.3em' }}
-          >
+          <span className="font-display uppercase font-light" style={{ fontSize: '0.5rem', letterSpacing: '0.3em' }}>
             {t.hero.scroll}
           </span>
           <svg width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" strokeWidth="1.5">
