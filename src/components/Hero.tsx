@@ -38,7 +38,7 @@ export default function Hero({ t }: { t: Translation }) {
           position: 'absolute',
           width: '140vw',
           height: '140vw',
-          top: '28%',
+          top: '22%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           objectFit: 'contain',
@@ -81,7 +81,7 @@ export default function Hero({ t }: { t: Translation }) {
     position: 'absolute',
     width: '14vw',
     height: '14vw',
-    top: '18%',
+    top: '16%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     objectFit: 'contain',
@@ -97,7 +97,7 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 0.9, duration: 1 }}
         style={{
           position: 'absolute',
-          top: '34%',
+          top: '28%',
           left: '0%',
           right: '0%',
           width: '90vw',
@@ -138,7 +138,7 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 1.6, duration: 1 }}
         style={{
           position: 'absolute',
-          top: '68%',
+          top: '60%',
           left: '50%',
           transform: 'translateX(-50%)',
           whiteSpace: 'nowrap',
@@ -161,7 +161,7 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 1.8, duration: 1 }}
         style={{
           position: 'absolute',
-          top: '76%',
+          top: 68%',
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'flex',
