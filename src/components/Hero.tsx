@@ -45,7 +45,7 @@ export default function Hero({ t }: { t: Translation }) {
         {t.hero.eyebrow}
       </motion.span>
 
-      {/* WATERMARK — % of section, always centered */}
+      {/* WATERMARK */}
       <motion.img
         src="/watermark.png"
         alt=""
@@ -58,14 +58,15 @@ export default function Hero({ t }: { t: Translation }) {
           top: '45%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          height: '75%',
-          width: 'auto',
+          width: '80%',
+          height: 'auto',
+          maxHeight: '75%',
           pointerEvents: 'none',
           zIndex: 1,
         }}
       />
 
-      {/* SMALL BROWN FROG — same anchor as watermark */}
+      {/* SMALL BROWN FROG */}
       <motion.div
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -102,7 +103,7 @@ export default function Hero({ t }: { t: Translation }) {
         <span style={{
           display: 'block',
           fontFamily: 'var(--font-serif)',
-          fontSize: 'clamp(2.2rem, 5.5vw, 4.8rem)',
+          fontSize: 'clamp(1.8rem, 4vw, 4rem)',
           fontWeight: 400,
           color: '#2A2A28',
           lineHeight: 1.05,
@@ -115,7 +116,7 @@ export default function Hero({ t }: { t: Translation }) {
         <span style={{
           display: 'block',
           fontFamily: 'var(--font-serif)',
-          fontSize: 'clamp(2.2rem, 5.5vw, 4.8rem)',
+          fontSize: 'clamp(1.8rem, 4vw, 4rem)',
           fontWeight: 400,
           color: '#2A2A28',
           lineHeight: 1.05,
