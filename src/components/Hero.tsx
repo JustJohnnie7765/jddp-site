@@ -26,59 +26,60 @@ export default function Hero({ t }: { t: Translation }) {
       overflow: 'hidden',
     }}>
 
-      {/* WATERMARK — absolute, fully independent */}
+      {/* WATERMARK — centered, fills most of screen */}
       <motion.img
         src="/watermark.png"
         alt=""
         aria-hidden="true"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.4 }}
+        animate={{ opacity: 0.18 }}
         transition={{ delay: 0.2, duration: 2 }}
         style={{
           position: 'absolute',
-          width: '90vw',
-          height: '98vh',
-          top: '48%',
-          left: '48%',
-          transform: 'translate(-50%,-50%)',
+          width: '88vw',
+          height: '55vw',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
           objectFit: 'contain',
           pointerEvents: 'none',
           zIndex: 0,
         }}
       />
 
-      {/* SMALL BROWN FROG — absolute, fully independent */}
+      {/* SMALL BROWN FROG — same center anchor as watermark */}
       <motion.div
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.6, duration: 1.4, type: 'spring', bounce: 0.4 }}
         style={{
           position: 'absolute',
-          width: '140px',
-          height: '140px',
-          top: '35%',
+          width: '10vw',
+          height: '10vw',
+          top: '50%',
           left: '50%',
-          transform: 'translate(-50%,-50%)',
+          transform: 'translate(-50%, -50%)',
           backgroundColor: '#6B2D0E',
           zIndex: 3,
           ...maskStyle,
         }}
       />
 
-      {/* EYEBROW */}
+      {/* EYEBROW — small enough to fit one line on mobile */}
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 1.2 }}
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '0.95rem',
-          letterSpacing: '0.25em',
+          fontSize: '0.55rem',
+          letterSpacing: '0.2em',
           textTransform: 'uppercase',
           fontWeight: 300,
           color: '#6B2D0E',
           textAlign: 'center',
-          marginBottom: '0px',
+          whiteSpace: 'nowrap',
+          marginBottom: '32vw',
           position: 'relative',
           zIndex: 5,
         }}
@@ -96,7 +97,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '100%',
           padding: '0 24px',
           boxSizing: 'border-box',
-          marginTop: '120px',
+          marginTop: '32vw',
           position: 'relative',
           zIndex: 5,
         }}
@@ -104,7 +105,7 @@ export default function Hero({ t }: { t: Translation }) {
         <span style={{
           display: 'block',
           fontFamily: 'var(--font-serif)',
-          fontSize: 'clamp(1.4rem,6.5vw,4rem)',
+          fontSize: 'clamp(2rem, 9vw, 4rem)',
           fontWeight: 400,
           color: '#2A2A28',
           lineHeight: 1.05,
@@ -117,7 +118,7 @@ export default function Hero({ t }: { t: Translation }) {
         <span style={{
           display: 'block',
           fontFamily: 'var(--font-serif)',
-          fontSize: 'clamp(1.4rem,6.5vw,4rem)',
+          fontSize: 'clamp(2rem, 9vw, 4rem)',
           fontWeight: 400,
           color: '#2A2A28',
           lineHeight: 1.05,
@@ -133,13 +134,13 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 1.6, duration: 1 }}
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '0.5rem',
-          letterSpacing: '0.3em',
+          fontSize: '0.45rem',
+          letterSpacing: '0.25em',
           textTransform: 'uppercase',
           fontWeight: 300,
           color: '#7A7870',
           textAlign: 'center',
-          marginTop: '40px',
+          marginTop: '20px',
           position: 'relative',
           zIndex: 5,
         }}
@@ -158,7 +159,7 @@ export default function Hero({ t }: { t: Translation }) {
           alignItems: 'center',
           gap: '4px',
           color: '#6B2D0E',
-          marginTop: '34px',
+          marginTop: '16px',
           position: 'relative',
           zIndex: 5,
         }}
