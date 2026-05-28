@@ -103,7 +103,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '100%',
           padding: '0 24px',
           boxSizing: 'border-box',
-          marginTop: '-15%',
+          marginTop: '-25%',
           flexShrink: 0,
         }}
       >
