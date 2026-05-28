@@ -82,7 +82,7 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 0.9, duration: 1 }}
         style={{
           position: 'absolute',
-          top: '28%',
+          top: '38%',
           left: '0',
           right: '0',
           width: '90vw',
@@ -123,7 +123,7 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 1.6, duration: 1 }}
         style={{
           position: 'absolute',
-          top: '60%',
+          top: '56%',
           left: '50%',
           transform: 'translateX(-50%)',
           whiteSpace: 'nowrap',
@@ -146,7 +146,7 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 1.8, duration: 1 }}
         style={{
           position: 'absolute',
-          top: '68%',
+          top: '64%',
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'flex',
