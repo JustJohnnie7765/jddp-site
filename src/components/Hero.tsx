@@ -22,7 +22,6 @@ export default function Hero({ t }: { t: Translation }) {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: '0px',
       padding: '0',
       boxSizing: 'border-box',
       overflow: 'hidden',
@@ -42,24 +41,25 @@ export default function Hero({ t }: { t: Translation }) {
           color: '#6B2D0E',
           textAlign: 'center',
           flexShrink: 0,
-          marginBottom: '8px',
+          marginBottom: '0',
         }}
       >
         {t.hero.eyebrow}
       </motion.span>
 
-{/* FROG ZONE */}
-<div style={{
-  position: 'relative',
-  width: '85vw',
-  maxWidth: '480px',
-  height: '35vh',
-  flexShrink: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  marginTop: '-8vh',
-}}>
+      {/* FROG ZONE */}
+      <div style={{
+        position: 'relative',
+        width: '85vw',
+        maxWidth: '480px',
+        height: '50vh',
+        flexShrink: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '0',
+      }}>
+
         {/* WATERMARK */}
         <motion.img
           src="/watermark.png"
@@ -94,7 +94,7 @@ export default function Hero({ t }: { t: Translation }) {
         />
       </div>
 
-      {/* HEADLINE — negative margin pulls up into frog legs */}
+      {/* HEADLINE */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '100%',
           padding: '0 24px',
           boxSizing: 'border-box',
-          marginTop: '-15%',
+          marginTop: '0',
           flexShrink: 0,
         }}
       >
