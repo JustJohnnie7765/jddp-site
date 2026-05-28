@@ -15,6 +15,7 @@ export default function Hero({ t }: { t: Translation }) {
 
   return (
     <section style={{
+      position: 'relative',
       width: '100%',
       height: 'calc(100vh - 64px)',
       background: '#F5F0E8',
@@ -22,10 +23,47 @@ export default function Hero({ t }: { t: Translation }) {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '0',
-      boxSizing: 'border-box',
       overflow: 'hidden',
     }}>
+
+      {/* WATERMARK — absolute, fully independent */}
+      <motion.img
+        src="/watermark.png"
+        alt=""
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.4 }}
+        transition={{ delay: 0.2, duration: 2 }}
+        style={{
+          position: 'absolute',
+          width: '90vw',
+          height: '98vh',
+          top: '42%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          objectFit: 'fill',
+          pointerEvents: 'none',
+          zIndex: 0,
+        }}
+      />
+
+      {/* SMALL BROWN FROG — absolute, fully independent */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.7 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.6, duration: 1.4, type: 'spring', bounce: 0.4 }}
+        style={{
+          position: 'absolute',
+          width: '140px',
+          height: '140px',
+          top: '39%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
+          backgroundColor: '#6B2D0E',
+          zIndex: 3,
+          ...maskStyle,
+        }}
+      />
 
       {/* EYEBROW */}
       <motion.span
@@ -34,65 +72,19 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 0.4, duration: 1.2 }}
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '0.7rem',
+          fontSize: '0.95rem',
           letterSpacing: '0.25em',
           textTransform: 'uppercase',
           fontWeight: 300,
           color: '#6B2D0E',
           textAlign: 'center',
-          flexShrink: 0,
-          marginBottom: '0',
+          marginBottom: '60px',
+          position: 'relative',
+          zIndex: 5,
         }}
       >
         {t.hero.eyebrow}
       </motion.span>
-
-      {/* FROG ZONE */}
-      <div style={{
-        position: 'relative',
-        width: '85vw',
-        maxWidth: '480px',
-        height: '50vh',
-        flexShrink: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: '0',
-      }}>
-
-        {/* WATERMARK */}
-        <motion.img
-          src="/watermark.png"
-          alt=""
-          aria-hidden="true"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.17 }}
-          transition={{ delay: 0.2, duration: 2 }}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            pointerEvents: 'none',
-          }}
-        />
-
-        {/* SMALL BROWN FROG */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 1.4, type: 'spring', bounce: 0.4 }}
-          style={{
-            position: 'relative',
-            width: '14%',
-            aspectRatio: '1/1',
-            backgroundColor: '#6B2D0E',
-            zIndex: 2,
-            ...maskStyle,
-          }}
-        />
-      </div>
 
       {/* HEADLINE */}
       <motion.div
@@ -104,14 +96,15 @@ export default function Hero({ t }: { t: Translation }) {
           width: '100%',
           padding: '0 24px',
           boxSizing: 'border-box',
-          marginTop: '0',
-          flexShrink: 0,
+          marginTop: '200px',
+          position: 'relative',
+          zIndex: 5,
         }}
       >
         <span style={{
           display: 'block',
           fontFamily: 'var(--font-serif)',
-          fontSize: 'clamp(1.8rem, 8vw, 4rem)',
+          fontSize: 'clamp(1.4rem,6.5vw,4rem)',
           fontWeight: 400,
           color: '#2A2A28',
           lineHeight: 1.05,
@@ -124,7 +117,7 @@ export default function Hero({ t }: { t: Translation }) {
         <span style={{
           display: 'block',
           fontFamily: 'var(--font-serif)',
-          fontSize: 'clamp(1.8rem, 8vw, 4rem)',
+          fontSize: 'clamp(1.4rem,6.5vw,4rem)',
           fontWeight: 400,
           color: '#2A2A28',
           lineHeight: 1.05,
@@ -140,14 +133,15 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 1.6, duration: 1 }}
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '0.45rem',
+          fontSize: '0.5rem',
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
           fontWeight: 300,
           color: '#7A7870',
           textAlign: 'center',
-          flexShrink: 0,
-          marginTop: '10px',
+          marginTop: '40px',
+          position: 'relative',
+          zIndex: 5,
         }}
       >
         {t.hero.tagline}
@@ -164,8 +158,9 @@ export default function Hero({ t }: { t: Translation }) {
           alignItems: 'center',
           gap: '4px',
           color: '#6B2D0E',
-          flexShrink: 0,
-          marginTop: '10px',
+          marginTop: '34px',
+          position: 'relative',
+          zIndex: 5,
         }}
       >
         <motion.div
