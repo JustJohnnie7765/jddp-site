@@ -48,17 +48,17 @@ export default function Hero({ t }: { t: Translation }) {
         {t.hero.eyebrow}
       </motion.span>
 
-     {/* FROG ZONE */}
+{/* FROG ZONE */}
 <div style={{
   position: 'relative',
   width: '85vw',
   maxWidth: '480px',
-  aspectRatio: '1/1',
+  height: '35vh',
   flexShrink: 0,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  marginTop: '-15vh',   // ← ADD THIS
+  marginTop: '-8vh',
 }}>
         {/* WATERMARK */}
         <motion.img
