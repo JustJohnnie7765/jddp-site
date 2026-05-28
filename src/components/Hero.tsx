@@ -80,7 +80,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '14vw',
           height: '14vw',
           top: '29%',
-          left: '50%',
+          left: '47%',
           transform: 'translate(-50%, -50%)',
           backgroundColor: '#6B2D0E',
           zIndex: 3,
