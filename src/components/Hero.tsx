@@ -56,7 +56,7 @@ export default function Hero({ t }: { t: Translation }) {
           position: 'absolute',
           width: '14vw',
           height: '14vw',
-          top: '50%',
+          top: '28%',
           left: '51%',
           transform: 'translate(-50%, -50%)',
           backgroundColor: '#6B2D0E',
@@ -79,7 +79,7 @@ export default function Hero({ t }: { t: Translation }) {
           color: '#6B2D0E',
           textAlign: 'center',
           whiteSpace: 'nowrap',
-          marginBottom: '35vw',
+          marginBottom: '20vw',
           position: 'relative',
           zIndex: 5,
         }}
