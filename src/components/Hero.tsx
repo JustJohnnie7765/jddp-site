@@ -41,7 +41,7 @@ export default function Hero({ t }: { t: Translation }) {
           top: '42%',
           left: '50%',
           transform: 'translate(-50%,-50%)',
-          objectFit: 'fill',
+          objectFit: 'contain',
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -56,7 +56,7 @@ export default function Hero({ t }: { t: Translation }) {
           position: 'absolute',
           width: '140px',
           height: '140px',
-          top: '39%',
+          top: '35%',
           left: '50%',
           transform: 'translate(-50%,-50%)',
           backgroundColor: '#6B2D0E',
@@ -96,7 +96,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '100%',
           padding: '0 24px',
           boxSizing: 'border-box',
-          marginTop: '200px',
+          marginTop: '120px',
           position: 'relative',
           zIndex: 5,
         }}
