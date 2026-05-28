@@ -80,7 +80,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '14vw',
           height: '14vw',
           top: '29%',
-          left: '46%',
+          left: '49%',
           transform: 'translate(-50%, -50%)',
           backgroundColor: '#6B2D0E',
           zIndex: 3,
@@ -95,7 +95,7 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 0.9, duration: 1 }}
         style={{
           position: 'absolute',
-          top: '52%',
+          top: '46%',
           left: '0%',
           right: '0%',
           width: '90vw',
