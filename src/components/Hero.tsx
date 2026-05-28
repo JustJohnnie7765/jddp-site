@@ -21,8 +21,9 @@ export default function Hero({ t }: { t: Translation }) {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: '4vh 0 3vh',
+      justifyContent: 'center',
+      gap: '0px',
+      padding: '0',
       boxSizing: 'border-box',
       overflow: 'hidden',
     }}>
@@ -34,23 +35,26 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 0.4, duration: 1.2 }}
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: '0.75rem',
+          fontSize: '0.7rem',
           letterSpacing: '0.25em',
           textTransform: 'uppercase',
           fontWeight: 300,
           color: '#6B2D0E',
           textAlign: 'center',
           flexShrink: 0,
+          marginBottom: '8px',
         }}
       >
         {t.hero.eyebrow}
       </motion.span>
 
-      {/* FROG ZONE — flex-1 fills all middle space */}
+      {/* FROG ZONE */}
       <div style={{
-        flex: 1,
         position: 'relative',
-        width: '100%',
+        width: '85vw',
+        maxWidth: '480px',
+        aspectRatio: '1/1',
+        flexShrink: 0,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -65,31 +69,31 @@ export default function Hero({ t }: { t: Translation }) {
           transition={{ delay: 0.2, duration: 2 }}
           style={{
             position: 'absolute',
-            width: '85%',
-            maxWidth: '500px',
-            height: 'auto',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
             pointerEvents: 'none',
           }}
         />
 
-        {/* SMALL BROWN FROG — same center point */}
+        {/* SMALL BROWN FROG */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 1.4, type: 'spring', bounce: 0.4 }}
           style={{
             position: 'relative',
-            width: '48px',
-            height: '48px',
+            width: '14%',
+            aspectRatio: '1/1',
             backgroundColor: '#6B2D0E',
-            flexShrink: 0,
             zIndex: 2,
             ...maskStyle,
           }}
         />
       </div>
 
-      {/* HEADLINE */}
+      {/* HEADLINE — negative margin pulls up into frog legs */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -99,6 +103,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '100%',
           padding: '0 24px',
           boxSizing: 'border-box',
+          marginTop: '-15%',
           flexShrink: 0,
         }}
       >
@@ -141,7 +146,7 @@ export default function Hero({ t }: { t: Translation }) {
           color: '#7A7870',
           textAlign: 'center',
           flexShrink: 0,
-          marginTop: '8px',
+          marginTop: '10px',
         }}
       >
         {t.hero.tagline}
@@ -156,16 +161,16 @@ export default function Hero({ t }: { t: Translation }) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '5px',
+          gap: '4px',
           color: '#6B2D0E',
           flexShrink: 0,
-          marginTop: '8px',
+          marginTop: '10px',
         }}
       >
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px' }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}
         >
           <span style={{
             fontFamily: 'var(--font-display)',
