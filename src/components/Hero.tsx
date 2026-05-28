@@ -26,7 +26,7 @@ export default function Hero({ t }: { t: Translation }) {
       overflow: 'hidden',
     }}>
 
-      {/* WATERMARK — centered, fills most of screen */}
+      {/* WATERMARK — absolute, top 35% */}
       <motion.img
         src="/watermark.png"
         alt=""
@@ -38,7 +38,7 @@ export default function Hero({ t }: { t: Translation }) {
           position: 'absolute',
           width: '140vw',
           height: '110vw',
-          top: '32%',
+          top: '35%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           objectFit: 'contain',
@@ -47,7 +47,30 @@ export default function Hero({ t }: { t: Translation }) {
         }}
       />
 
-      {/* SMALL BROWN FROG — same center anchor as watermark */}
+      {/* EYEBROW — absolute, sits above watermark center */}
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4, duration: 1.2 }}
+        style={{
+          position: 'absolute',
+          top: '13%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          whiteSpace: 'nowrap',
+          fontFamily: 'var(--font-display)',
+          fontSize: '0.55rem',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          fontWeight: 300,
+          color: '#6B2D0E',
+          zIndex: 5,
+        }}
+      >
+        {t.hero.eyebrow}
+      </motion.span>
+
+      {/* BROWN FROG — absolute, on watermark body */}
       <motion.div
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -56,8 +79,8 @@ export default function Hero({ t }: { t: Translation }) {
           position: 'absolute',
           width: '14vw',
           height: '14vw',
-          top: '28%',
-          left: '51%',
+          top: '26%',
+          left: '50%',
           transform: 'translate(-50%, -50%)',
           backgroundColor: '#6B2D0E',
           zIndex: 3,
@@ -65,40 +88,18 @@ export default function Hero({ t }: { t: Translation }) {
         }}
       />
 
-      {/* EYEBROW — small enough to fit one line on mobile */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 1.2 }}
-        style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: '0.55rem',
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          fontWeight: 300,
-          color: '#6B2D0E',
-          textAlign: 'center',
-          whiteSpace: 'nowrap',
-          marginBottom: '20vw',
-          position: 'relative',
-          zIndex: 5,
-        }}
-      >
-        {t.hero.eyebrow}
-      </motion.span>
-
-      {/* HEADLINE */}
+      {/* HEADLINE — absolute, bottom half */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 1 }}
         style={{
+          position: 'absolute',
+          top: '58%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '90vw',
           textAlign: 'center',
-          width: '100%',
-          padding: '0 24px',
-          boxSizing: 'border-box',
-          marginTop: '0vw',
-          position: 'relative',
           zIndex: 5,
         }}
       >
@@ -127,40 +128,44 @@ export default function Hero({ t }: { t: Translation }) {
         </span>
       </motion.div>
 
-      {/* TAGLINE */}
+      {/* TAGLINE — absolute */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 1 }}
         style={{
+          position: 'absolute',
+          top: '78%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          whiteSpace: 'nowrap',
           fontFamily: 'var(--font-display)',
           fontSize: '0.45rem',
           letterSpacing: '0.25em',
           textTransform: 'uppercase',
           fontWeight: 300,
           color: '#7A7870',
-          textAlign: 'center',
-          marginTop: '20px',
-          position: 'relative',
           zIndex: 5,
         }}
       >
         {t.hero.tagline}
       </motion.p>
 
-      {/* DISCOVER */}
+      {/* DISCOVER — absolute, bottom */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}
         transition={{ delay: 1.8, duration: 1 }}
         style={{
+          position: 'absolute',
+          top: '85%',
+          left: '50%',
+          transform: 'translateX(-50%)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           gap: '4px',
           color: '#6B2D0E',
-          marginTop: '16px',
-          position: 'relative',
           zIndex: 5,
         }}
       >
