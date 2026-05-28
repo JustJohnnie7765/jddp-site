@@ -20,6 +20,7 @@ export interface Translation {
       after: string;
     };
     subtitle: string;
+    tagline: string;
     scroll: string;
   };
   why: {
@@ -101,6 +102,7 @@ export const translations: Record<Language, Translation> = {
         after: "Brave."
       },
       subtitle: "",
+      tagline: "Born 9 November 2019 · Cape Town",
       scroll: "DISCOVER"
     },
     why: {
@@ -196,6 +198,7 @@ export const translations: Record<Language, Translation> = {
         after: "Dapper."
       },
       subtitle: "",
+      tagline: "Gebore 9 November 2019 · Kaapstad",
       scroll: "ONTDEK"
     },
     why: {
@@ -291,6 +294,7 @@ export const translations: Record<Language, Translation> = {
         after: "ngokuzolileyo."
       },
       subtitle: "",
+      tagline: "Yazalwa 9 Novemba 2019 · iKapa",
       scroll: "FUMANA"
     },
     why: {
