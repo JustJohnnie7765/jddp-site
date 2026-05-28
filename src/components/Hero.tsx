@@ -71,9 +71,7 @@ export default function Hero({ t }: { t: Translation }) {
       </motion.span>
 
       {/* BROWN FROG — absolute, on watermark body */}
-     <motion.img
-  src="/watermark.png"
-  alt="JDDP Logo"
+    <motion.div
   initial={{ opacity: 0, scale: 0.7 }}
   animate={{ opacity: 1, scale: 1 }}
   transition={{ delay: 0.6, duration: 1.4, type: 'spring', bounce: 0.4 }}
@@ -81,12 +79,19 @@ export default function Hero({ t }: { t: Translation }) {
     position: 'absolute',
     width: '14vw',
     height: '14vw',
-    top: '22%',
+    top: '18%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    objectFit: 'contain',
+    backgroundColor: '#6B2D0E',
+    WebkitMaskImage: "url('/watermark.png')",
+    maskImage: "url('/watermark.png')",
+    WebkitMaskSize: '100% 100%',
+    maskSize: '100% 100%',
+    WebkitMaskRepeat: 'no-repeat',
+    maskRepeat: 'no-repeat',
+    WebkitMaskPosition: 'center',
+    maskPosition: 'center',
     zIndex: 3,
-    filter: 'brightness(0) saturate(100%) invert(13%) sepia(74%) saturate(1200%) hue-rotate(355deg) brightness(60%)',
   }}
 />
 
