@@ -36,9 +36,9 @@ export default function Hero({ t }: { t: Translation }) {
         transition={{ delay: 0.2, duration: 2 }}
         style={{
           position: 'absolute',
-          width: '130vw',
-          height: '100vw',
-          top: '50%',
+          width: '140vw',
+          height: '110vw',
+          top: '35%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           objectFit: 'contain',
@@ -79,7 +79,7 @@ export default function Hero({ t }: { t: Translation }) {
           color: '#6B2D0E',
           textAlign: 'center',
           whiteSpace: 'nowrap',
-          marginBottom: '20vw',
+          marginBottom: '40vw',
           position: 'relative',
           zIndex: 5,
         }}
@@ -97,7 +97,7 @@ export default function Hero({ t }: { t: Translation }) {
           width: '100%',
           padding: '0 24px',
           boxSizing: 'border-box',
-          marginTop: '10vw',
+          marginTop: '0vw',
           position: 'relative',
           zIndex: 5,
         }}
